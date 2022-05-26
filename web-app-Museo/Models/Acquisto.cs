@@ -2,7 +2,7 @@
 
 namespace web_app_Museo.Models
 {
-    public class Acquisti
+    public class Acquisto
     {   [Key]
         public int Id { get; set; }
 
@@ -11,7 +11,7 @@ namespace web_app_Museo.Models
         [Range(1,1000,ErrorMessage ="Mi dispiace questa quantità non è disponibile, il minomo è 1 pezzo e il massimo è 1000 pezzi")]
         public int QuantitaDaAcquistare { get; set; }
 
-        public Acquisti()
+        public Acquisto()
         {
 
         }
@@ -19,7 +19,7 @@ namespace web_app_Museo.Models
         public int? ProdottoId { get; set; }
         public Prodotto prodotti { get; set; }
 
-        public Acquisti (DateTime data, int quantitadaacquistare)
+        public Acquisto (DateTime data, int quantitadaacquistare)
         {
             this.Data = data;
             this.QuantitaDaAcquistare = quantitadaacquistare;
