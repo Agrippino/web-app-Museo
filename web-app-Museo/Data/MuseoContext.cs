@@ -9,7 +9,7 @@ namespace web_app_Museo.Data
         public DbSet<Acquisto> Acquisti { get; set; }
         public DbSet<Categoria> Categorie { get; set; }
         public DbSet<Rifornimento> Rifornimenti { get; set; }
-        public protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=localhost;Database=DbMuseo; Integrated Security=True");
         }
