@@ -7,13 +7,17 @@
 
 
         public int? ProdottoId { get; set; }
-        public Prodotto? prodotto { get; set; }
+        public Prodotto? Prodotto { get; set; }
 
         public Rifornimento()
         {
 
         }
-
+        public Rifornimento(int id, int quantitaDaAggiungere)
+        {
+            this.Id = id;
+            this.QuantitaDaAggiungere = quantitaDaAggiungere;
+        }
 
     }
 }

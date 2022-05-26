@@ -10,5 +10,10 @@
         {
 
         }
+        public Categoria(int id, string nome)
+        {
+            this.Id = id;
+            this.Nome = nome;
+        }
     }
 }
