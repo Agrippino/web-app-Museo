@@ -2,7 +2,7 @@
 {
     public class ProdottiAcquisti
     { 
-        public Prodotto Prodotti { get; set; }
+        public Prodotto? Prodotti { get; set; }
         public List<Acquisto>? Acquisti { get; set; }
     }
 }
