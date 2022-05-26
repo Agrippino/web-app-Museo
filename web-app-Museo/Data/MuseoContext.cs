@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using web_app_Museo.Models;
 
 namespace web_app_Museo.Data
 {
