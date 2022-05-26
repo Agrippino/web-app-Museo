@@ -75,6 +75,40 @@ namespace web_app_Museo.Controllers
         }
 
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Elimina(int id)
+        {
+            Prodotto? prodottoDaRimuovere = null;
+
+            using (MuseoContext db = new MuseoContext())
+            {
+                /*
+                if (db.Prodotti == null)
+                {
+                    return Problem("Il database è vuoto");
+                }
+                */
+                prodottoDaRimuovere = db.Prodotti
+                    .Where(prodotto => prodotto.Id == id)
+                    .FirstOrDefault();
+
+                if (prodottoDaRimuovere != null)
+                {
+                    db.Prodotti.Remove(prodottoDaRimuovere);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+        }
+
+        
+
+
         /*
         public IActionResult Modifica(int? id)
         {
