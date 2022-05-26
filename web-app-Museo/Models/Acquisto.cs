@@ -17,7 +17,7 @@ namespace web_app_Museo.Models
         }
 
         public int? ProdottoId { get; set; }
-        public Prodotto prodotti { get; set; }
+        public Prodotto Prodotti { get; set; }
 
         public Acquisto (DateTime data, int quantitadaacquistare)
         {

@@ -33,7 +33,7 @@ namespace web_app_Museo.Models
         public int? CategoriaId { get; set; }
         public Categoria Categorie { get; set; }
         public int? AcquistiId { get; set; }
-        public Acquisto acquisti { get; set; }
+        public Acquisto Acquisti { get; set; }
         public int? RifornimentoId { get; set; }
         public Rifornimento Rifornimenti { get; set; }
         
