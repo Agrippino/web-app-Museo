@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using web_app_Museo.Data;
+using web_app_Museo.Models;
 
 namespace web_app_Museo.Controllers
 {
@@ -39,7 +40,7 @@ namespace web_app_Museo.Controllers
 
             using (MuseoContext db = new MuseoContext())
             {
-                Prodotto nuovoProdottoDaAggiungere = new Prodotto(nuovoProdotto.Name, nuovoProdotto.Description, nuovoProdotto.Image, nuovoProdotto.Price);
+                Prodotto nuovoProdottoDaAggiungere = new Prodotto(nuovoProdotto.Immagine, nuovoProdotto.Nome, nuovoProdotto.Descrizione, nuovoProdotto.Prezzo, nuovoProdotto.QuantitaDisponibile);
 
                 db.Prodotti.Add(nuovoProdottoDaAggiungere);
                 db.SaveChanges();
@@ -47,7 +48,7 @@ namespace web_app_Museo.Controllers
             //Controlla questo
             return RedirectToAction("Index");
         }
-
+   
 
         public IActionResult Elimina(int? id)
         {
@@ -68,10 +69,9 @@ namespace web_app_Museo.Controllers
                 {
                     return NotFound();
                 }
+                return View(prodottoDaEliminare);
             }
-           
-
-            return View(prodottoDaEliminare);
+               
         }
 
 
@@ -106,8 +106,67 @@ namespace web_app_Museo.Controllers
             }
         }
 
-        
 
+        [HttpGet]
+        public IActionResult Modifica(int id)
+        {
+            Prodotto? prodottoDaModificare = null;
+            using (MuseoContext db = new MuseoContext())
+            {
+                prodottoDaModificare = db.Prodotti
+                    .Where(prodotto => prodotto.Id == id)
+                    .FirstOrDefault();
+            }
+
+
+            if (prodottoDaModificare == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return View("Modifica", prodottoDaModificare);
+            }
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Modifica(int id, Prodotto model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Update", model);
+            }
+
+            Prodotto? prodottoOriginale = null;
+
+            using (MuseoContext db = new MuseoContext())
+            {
+                prodottoOriginale = db.Prodotti
+                    .Where(prodotto => prodotto.Id == id)
+                    .FirstOrDefault();
+
+
+                if (prodottoOriginale != null)
+                {
+                    prodottoOriginale.Immagine = model.Immagine;
+                    prodottoOriginale.Nome = model.Nome;
+                    prodottoOriginale.Descrizione = model.Descrizione;
+                    prodottoOriginale.Prezzo = model.Prezzo;
+                    prodottoOriginale.QuantitaDisponibile = model.QuantitaDisponibile;
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+        }
+     
 
         /*
         public IActionResult Modifica(int? id)
