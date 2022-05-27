@@ -1,5 +1,55 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
+@model IEnumerable<web_app_Museo.Models.Prodotto>
+
 @{
+    ViewData["Title"] = "Index";
 }
+
+<h1>Lista Prodotti</h1>
+
+<p>
+    <a asp-action="Crea">Crea un nuovo prodotto</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Descrizione
+            </th>
+            <th>
+                Quantità
+            </th>
+            <th>
+                Prezzo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descrizione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantitaDisponibile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prezzo)
+            </td>
+            <td>
+                <a asp-action="Modifica" asp-route-id="@item.Id">Modifica</a> |
+                <a asp-action="Rifornimento" asp-route-id="@item.Id">Rifornimento</a> |
+                <a asp-action="Elimina" asp-route-id="@item.Id">Elimina</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
