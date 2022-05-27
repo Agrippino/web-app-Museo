@@ -31,7 +31,7 @@ namespace web_app_Museo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Crea(Prodotto nuovoProdotto)
+        public IActionResult Crea(CategorieProdotti nuovoProdotto)
         {
             if (!ModelState.IsValid)
             {
