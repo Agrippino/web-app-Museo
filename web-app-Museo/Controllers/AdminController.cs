@@ -21,6 +21,7 @@ namespace web_app_Museo.Controllers
             return View("Index", listaProdotti);
         }
 
+        [HttpGet]
         public IActionResult Crea()
         {
             return View();

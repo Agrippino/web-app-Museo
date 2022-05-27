@@ -1,5 +1,53 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Prodotto
+
 @{
+    ViewData["Title"] = "Crea Prodotto";
+}
+
+<h1>Crea</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="@Url.Action("Crea", "Admin")" method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label asp-for="Immagine" class="control-label"></label>
+                <input asp-for="Immagine" class="form-control" />
+                <span asp-validation-for="Immagine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descrizione" class="control-label"></label>
+                <input asp-for="Descrizione" class="form-control" />
+                <span asp-validation-for="Descrizione" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantitaDisponibile" class="control-label">Quantità Disponibile</label>
+                <input asp-for="QuantitaDisponibile" class="form-control" />
+                <span asp-validation-for="QuantitaDisponibile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prezzo" class="control-label"></label>
+                <input asp-for="Prezzo" class="form-control" />
+                <span asp-validation-for="Prezzo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crea" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Torna alla lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
