@@ -18,11 +18,11 @@ namespace web_app_Museo.Models
         [Column(TypeName="Text")]
         public string Descrizione { get; set; }
         [Required(ErrorMessage = "Per favore inserisci il prezzo del prodotto, questo campo è obbligatorio")]
-        [Range(0.01,1000, ErrorMessage = "Mi dispaice hai inserito un prezzo non valido, i minimo è 0.01€ mentre il massimo è 10000€ ")]
+        [Range(0.01,1000, ErrorMessage = "Mi dispiaice hai inserito un prezzo non valido, i minimo è 0.01€ mentre il massimo è 10000€ ")]
 
         public double Prezzo { get; set; }
         [Required(ErrorMessage = "Per favore inserisci la quantità disponibile del prodotto, questo campo è obbligatorio")]
-        [Range(1, 1000, ErrorMessage = "Mi dispaice hai inserito una quantità non valida, il minimo è 1 mentre il massimo è 10000")]
+        [Range(1, 1000, ErrorMessage = "Mi dispiaice hai inserito una quantità non valida, il minimo è 1 mentre il massimo è 10000")]
         public int QuantitaDisponibile { get; set; }
 
         public Prodotto()
