@@ -2,7 +2,7 @@
 {
     public class CategorieProdotti
     {
-        public Prodotto Prodotti { get; set; }
+        public Prodotto? Prodotti { get; set; }
         public List<Categoria>? Categorie { get; set; }
     }
 }

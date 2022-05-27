@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using web_app_Museo.Data;
 using web_app_Museo.Models;
 
@@ -24,25 +25,50 @@ namespace web_app_Museo.Controllers
         [HttpGet]
         public IActionResult Crea()
         {
-            return View();
-        }
-
-      
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Crea(Prodotto nuovoProdotto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("Crea", nuovoProdotto);
-            }
-
 
             using (MuseoContext db = new MuseoContext())
             {
-                Prodotto nuovoProdottoDaAggiungere = new Prodotto(nuovoProdotto.Immagine, nuovoProdotto.Nome, nuovoProdotto.Descrizione, nuovoProdotto.Prezzo, nuovoProdotto.QuantitaDisponibile);
+                List<Categoria> categorie = db.Categorie.ToList();
 
+                CategorieProdotti model = new CategorieProdotti();
+                model.Prodotti = new Prodotto();
+                model.Categorie = categorie;
+                return View("Crea", model);
+            }
+
+        }
+     
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Crea(CategorieProdotti nuovoProdotto)
+        {
+            if (!ModelState.IsValid)
+            {
+                
+                using (MuseoContext db = new MuseoContext())
+                {
+                    List<Categoria> categorie = db.Categorie.ToList();
+
+                    nuovoProdotto.Categorie = categorie;
+                }
+
+                return View("Crea", nuovoProdotto);
+
+
+            }
+
+            
+
+            using (MuseoContext db = new MuseoContext())
+            {
+                Prodotto nuovoProdottoDaAggiungere = new Prodotto();
+                nuovoProdottoDaAggiungere.Immagine = nuovoProdotto.Prodotti.Immagine;
+                nuovoProdottoDaAggiungere.Nome = nuovoProdotto.Prodotti.Nome;
+                nuovoProdottoDaAggiungere.Descrizione = nuovoProdotto.Prodotti.Descrizione;
+                nuovoProdottoDaAggiungere.Prezzo = nuovoProdotto.Prodotti.Prezzo;
+                nuovoProdottoDaAggiungere.QuantitaDisponibile = nuovoProdotto.Prodotti.QuantitaDisponibile;
+                nuovoProdottoDaAggiungere.CategoriaId = nuovoProdotto.Prodotti.CategoriaId;
                 db.Prodotti.Add(nuovoProdottoDaAggiungere);
                 db.SaveChanges();
             }
