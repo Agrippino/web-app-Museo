@@ -193,28 +193,7 @@ namespace web_app_Museo.Controllers
                 }
             }
         }
-     
-
-        /*
-        public IActionResult Modifica(int? id)
-        {
-            //Se il database è vuoto o l'id nullo ritorno notfound
-            if (id == null || db.Prodotti == null)
-            {
-                return NotFound();
-            }
-            //Se non c'è l'id ritorno notfound
-            var travelPackageModel =  db.Prodotti.FindAsync(id);
-            if (travelPackageModel == null)
-            {
-                return NotFound();
-            }
-            return View(travelPackageModel);
-        }
-
-        */
-
-
+                  
 
     }
 }
