@@ -1,35 +1,48 @@
 ﻿@model Prodotto
-<!-- form -->
-               <form method="post" action="@Url.Action("Modifica", "Admin")">
-	         @Html.AntiForgeryToken()
-	        <div class="mb-3">
-	        <strong>Imamgine prodotto:</strong>
-	        <input asp-for="Immagine" class="d-block w-100" />
-	        <label for="floatingInputInvalid">Invalid input</label>
-	        <span asp-validation-for="Immagine" class="text-danger"></span>
-	        </div>
-	        <div class="mb-3">
-		        <strong>Nome prodotto:</strong>
-		        <input asp-for="Nome" class="d-block w-100" />
-		        <span asp-validation-for="Nome" class="text-danger"></span>
-	        </div>
-		        <div class="mb-3">
-		        <strong>Descrizione:</strong>
-		        <input asp-for="Descrizione" class="d-block w-100" />
-		        <span asp-validation-for="Descrizione" class="text-danger"></span>
-	        </div>
-		        <div class="mb-3">
-		        <strong>Prezzo prodotto:</strong>
-		        <input asp-for="Prezzo" class="d-block w-100" />
-		        <span asp-validation-for="Prezzo" class="text-danger"></span>
-	        </div>
-	        <div class="mb-3">
-		        <strong>Quantità disponbile:</strong>
-		        <input asp-for="QuantitaDisponibile" class="d-block w-100" />
-		        <span asp-validation-for="QuantitaDisponibile" class="text-danger"></span>
-	        </div>  
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                <button type="submit" class="btn btn-primary btn-info">Salva modifiche</button>
-              </div>
-	          </form> 
+
+<!-- Modal -->
+<div class="modal fade" id="BottoneModifica" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modifica @Model.Nome  </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form method="post" action="@Url.Action("Modifica", "Admin")">
+	 @Html.AntiForgeryToken()
+	<div class="my-3">
+	<strong>Imamgine prodotto:</strong>
+	<input asp-for="Immagine" class="d-block w-100" />
+	<label for="floatingInputInvalid">Invalid input</label>
+	<span asp-validation-for="Immagine" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<strong>Nome prodotto:</strong>
+		<input asp-for="Nome" class="d-block w-100" />
+		<span asp-validation-for="Nome" class="text-danger"></span>
+	</div>
+		<div class="mb-3">
+		<strong>Descrizione:</strong>
+		<input asp-for="Descrizione" class="d-block w-100" />
+		<span asp-validation-for="Descrizione" class="text-danger"></span>
+	</div>
+		<div class="mb-3">
+		<strong>Prezzo prodotto:</strong>
+		<input asp-for="Prezzo" class="d-block w-100" />
+		<span asp-validation-for="Prezzo" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<strong>Quantità disponbile:</strong>
+		<input asp-for="QuantitaDisponibile" class="d-block w-100" />
+		<span asp-validation-for="QuantitaDisponibile" class="text-danger"></span>
+	</div>  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <button type="submit" class="btn btn-primary btn-info">Salva modifiche</button>
+      </div>
+	  </form> 
+	  </div>
+    </div>
+  </div>
+</div>
