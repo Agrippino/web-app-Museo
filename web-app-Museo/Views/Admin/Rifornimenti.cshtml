@@ -1,0 +1,10 @@
+﻿@model Prodotto
+
+<div class="container">
+	<div class="row">
+		 <form method="post" action="@Url.Action("Rifornimento", "Admin")">
+	 @Html.AntiForgeryToken()
+	 </form>
+
+	</div>
+</div>
