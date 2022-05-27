@@ -1,16 +1,17 @@
 ﻿@model CategorieProdotti
 
+
 @{
     ViewData["Title"] = "Crea Prodotto";
 }
-
+@model Prodotto
 <h1>Crea</h1>
 
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form action="@Url.Action("Crea", "Admin")" method="post">
+        <form method="post"action="@Url.Action("Crea", "Admin")" >
             @Html.AntiForgeryToken()
             <div class="form-group">
                 <label asp-for="Prodotti.Immagine" class="control-label"></label>
