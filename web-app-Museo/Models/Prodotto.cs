@@ -31,9 +31,9 @@ namespace web_app_Museo.Models
         }
 
         public int? CategoriaId { get; set; }
-        public Categoria Categorie { get; set; }
-        public List<Acquisto> Acquisti { get; set; }
-        public List<Rifornimento> Rifornimenti { get; set; }
+        public Categoria? Categorie { get; set; }
+        public List<Acquisto>? Acquisti { get; set; }
+        public List<Rifornimento>? Rifornimenti { get; set; }
 
         public Prodotto(string immagine,string nome, string descrizione, double prezzo, int quantitadisponibile)
         {

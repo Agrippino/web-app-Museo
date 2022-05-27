@@ -62,7 +62,7 @@ namespace web_app_Museo.Controllers
 
             using (MuseoContext db = new MuseoContext())
             {
-                Prodotto nuovoProdottoDaAggiungere = db.Prodotti.Include(prodotto => prodotto.Categorie).FirstOrDefault();
+                Prodotto nuovoProdottoDaAggiungere = new Prodotto();
                 nuovoProdottoDaAggiungere.Immagine = nuovoProdotto.Prodotti.Immagine;
                 nuovoProdottoDaAggiungere.Nome = nuovoProdotto.Prodotti.Nome;
                 nuovoProdottoDaAggiungere.Descrizione = nuovoProdotto.Prodotti.Descrizione;

@@ -14,10 +14,5 @@ namespace web_app_Museo.Models
         {
 
         }
-        public Categoria(int id, string nome)
-        {
-            this.Id = id;
-            this.Nome = nome;
-        }
     }
 }
