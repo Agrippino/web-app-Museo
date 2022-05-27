@@ -47,7 +47,7 @@
             <td>
                 <a asp-action="Rifornimento" asp-route-id="@item.Id">Rifornimento</a> |
                 <a asp-action="Modifica" asp-route-id="@item.Id">Modifica</a>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BottoneModifica">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BottoneElimina">
                   Elimina
                 </button>
 
@@ -57,15 +57,19 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id="BottoneModifica" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="BottoneElimina" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modifica @item.Nome  </h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Elimina @item.Nome  </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
 
+                  <form method="post" action="@Url.Action("Elimina", "Admin")">
+                        
+                        <input type="submit" value="Elimina" class="btn btn-danger" /> 
+                  </form>
                   
                <!-- form -->
 	          </div>
