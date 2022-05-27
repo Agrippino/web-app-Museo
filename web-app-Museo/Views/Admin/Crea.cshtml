@@ -1,4 +1,4 @@
-﻿@model Prodotto
+﻿@model CategorieProdotti
 
 @{
     ViewData["Title"] = "Crea Prodotto";
@@ -13,30 +13,40 @@
         <form action="@Url.Action("Crea", "Admin")" method="post">
             @Html.AntiForgeryToken()
             <div class="form-group">
-                <label asp-for="Immagine" class="control-label"></label>
-                <input asp-for="Immagine" class="form-control" />
-                <span asp-validation-for="Immagine" class="text-danger"></span>
+                <label asp-for="Prodotti.Immagine" class="control-label"></label>
+                <input asp-for="Prodotti.Immagine" class="form-control" />
+                <span asp-validation-for="Prodotti.Immagine" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                <label asp-for="Prodotti.Nome" class="control-label"></label>
+                <input asp-for="Prodotti.Nome" class="form-control" />
+                <span asp-validation-for="Prodotti.Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descrizione" class="control-label"></label>
-                <input asp-for="Descrizione" class="form-control" />
-                <span asp-validation-for="Descrizione" class="text-danger"></span>
+                <label asp-for="Prodotti.Descrizione" class="control-label"></label>
+                <input asp-for="Prodotti.Descrizione" class="form-control" />
+                <span asp-validation-for="Prodotti.Descrizione" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="QuantitaDisponibile" class="control-label">Quantità Disponibile</label>
-                <input asp-for="QuantitaDisponibile" class="form-control" />
-                <span asp-validation-for="QuantitaDisponibile" class="text-danger"></span>
+                <label asp-for="Prodotti.QuantitaDisponibile" class="control-label">Quantità Disponibile</label>
+                <input asp-for="Prodotti.QuantitaDisponibile" class="form-control" />
+                <span asp-validation-for="Prodotti.QuantitaDisponibile" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Prezzo" class="control-label"></label>
-                <input asp-for="Prezzo" class="form-control" />
-                <span asp-validation-for="Prezzo" class="text-danger"></span>
+                <label asp-for="Prodotti.Prezzo" class="control-label"></label>
+                <input asp-for="Prodotti.Prezzo" class="form-control" />
+                <span asp-validation-for="Prodotti.Prezzo" class="text-danger"></span>
             </div>
+                <div class="mb-3">
+                <strong>Categoria:</strong>
+                <select asp-for="Prodotti.CategoriaId" class="form-select" aria-label="Default select example">
+                    <option selected>Seleziona una categoria</option>
+                    @foreach(Categoria categoria in Model.Categorie)
+                    {
+                        <option value="@categoria.Id">@categoria.Nome</option>
+                    }
+                </select>
+               </div>
             <div class="form-group">
                 <input type="submit" value="Crea" class="btn btn-primary" />
             </div>
