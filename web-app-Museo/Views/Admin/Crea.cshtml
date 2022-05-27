@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form action="@Url.Action("Crea", "Admin")" method="post">
+        <form method="post"action="@Url.Action("Crea", "Admin")" >
             @Html.AntiForgeryToken()
             <div class="form-group">
                 <label asp-for="Immagine" class="control-label"></label>
