@@ -45,11 +45,45 @@
                 @Html.DisplayFor(modelItem => item.Prezzo)
             </td>
             <td>
-                <a asp-action="Modifica" asp-route-id="@item.Id">Modifica</a> |
                 <a asp-action="Rifornimento" asp-route-id="@item.Id">Rifornimento</a> |
-                <a asp-action="Elimina" asp-route-id="@item.Id">Elimina</a>
+                <a asp-action="Modifica" asp-route-id="@item.Id">Modifica</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BottoneElimina">
+                  Elimina
+                </button>
+
             </td>
         </tr>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="BottoneElimina" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Elimina @item.Nome  </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+                  <form action="@Url.Action("Elimina", "Admin", new {id= item.Id})" method="post">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    Elimina
+                                </button>
+                   </form>
+                  
+               <!-- form -->
+	          </div>
+            </div>
+          </div>
+        </div>
 }
     </tbody>
 </table>
+
+
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BottoneModifica">
+  Modifica
+</button>
