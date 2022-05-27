@@ -163,7 +163,7 @@ namespace web_app_Museo.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Update", model);
+                return View("Modifica", model);
             }
 
             Prodotto? prodottoOriginale = null;
