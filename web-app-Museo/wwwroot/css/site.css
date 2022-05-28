@@ -1,9 +1,7 @@
 
 body {
-
-    font-family: 'Raleway';
+    font-family: 'Raleway', sans-serif;
     font-size: 22px;
-
 }
 
 .sfondoRosa {
@@ -43,4 +41,15 @@ marquee {
     height: 400px;
     object-fit: cover;
 }
+img + img {
+    margin-left: 40px;
+}
 
+/*TITOLO*/
+.titolo {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 52px;
+    font-weight: 600;
+    text-transform: uppercase;
+    
