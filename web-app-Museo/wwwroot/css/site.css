@@ -28,6 +28,13 @@ body {
     height: 100%;
     width: 100%;
 }
+.sfondoBlu {
+    background-color: rgb(48, 127, 156);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
 
 
 marquee {
@@ -45,11 +52,15 @@ img + img {
     margin-left: 40px;
 }
 
-/*TITOLO*/
 .titolo {
     color: black;
     font-family: 'Raleway', sans-serif;
-    font-size: 52px;
+    font-size: 72px;
     font-weight: 600;
     text-transform: uppercase;
+}
+a {
+    color:black;
+    text-decoration:unset;
+}
     
