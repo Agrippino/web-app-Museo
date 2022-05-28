@@ -28,53 +28,19 @@ body {
     background-color: rgba(154,209,139,255);
     background-size: cover;
     height: 100%;
-}
-/* would need to be adjusted depending on time */
-.marquee .marqueeone {
-    animation: marquee 10s linear infinite
-}
-
-.marquee .marqueetwo {
-    animation: marquee 10s linear 2.5s infinite
-}
-
-.marquee .marqueethree {
-    animation: marquee 10s linear 5s infinite
-}
-
-.marquee .marqueefour {
-    animation: marquee 10s linear 7.5s infinite
-}
-
-/* even out the elements */
-.marquee div {
-    position: absolute;
     width: 100%;
-    left: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
 }
 
-.marquee:hover div {
-    animation-play-state: paused;
+
+marquee {
+    height: 300px;
+    width: 100%;
+    max-width: 100%;
 }
 
-/* add delay at the end of animation so you dont start while another div is going */
-@keyframes marquee {
-    0% {
-        left: 100%;
-    }
-
-    50% {
-        left: -100%;
-    }
-
-    100% {
-        left: -100%
-    }
+.oggetto {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
 }
-.spacer {
-    position: relative;
-    height: 325px;
-}
+

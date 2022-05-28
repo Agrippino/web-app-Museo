@@ -1,37 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="spacer" >
 
-        <p>
-    <div class="marquee">
-        <div class="marqueeone">
-                <img src="/img/oggetto1.jpg" width="300" height="300">
-                <img src="/img/oggetto2.jpg" width="300" height="300">
-                <img src="/img/oggetto4.jpg" width="300" height="300">
-                <img src="/img/oggetto5.jpg" width="300" height="300">
-        </div>
-        <div class="marqueetwo">
-                <img src="/img/oggetto1.jpg" width="300" height="300">
-                <img src="/img/oggetto2.jpg" width="300" height="300">
-                <img src="/img/oggetto4.jpg" width="300" height="300">
-                <img src="/img/oggetto5.jpg" width="300" height="300">
-               </div>
-          <div class="marqueethree">
-                <img src="/img/oggetto1.jpg" width="300" height="300">
-                <img src="/img/oggetto2.jpg" width="300" height="300">
-                <img src="/img/oggetto4.jpg" width="300" height="300">
-                <img src="/img/oggetto5.jpg" width="300" height="300">
-          </div>
-          <div class="marqueefour">
-                <img src="/img/oggetto1.jpg" width="300" height="300">
-                <img src="/img/oggetto2.jpg" width="300" height="300">
-                <img src="/img/oggetto4.jpg" width="300" height="300">
-                <img src="/img/oggetto5.jpg" width="300" height="300">
-          </div>
-    </div>
-  </p>
-
-</div>
-
-
+<section class="sfondoRosa py-5 ">
+    <marquee 
+      onmouseover="this.stop();" onmouseout="this.start();"
+      width="100%"
+      behavior="alternate">
+      <img class="oggetto" src="~/img/oggetto1.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto2.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto3.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto4.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto5.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto6.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto7.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto8.jpg" alt="">
+    </marquee>
+</section>
