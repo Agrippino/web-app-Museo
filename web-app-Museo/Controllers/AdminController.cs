@@ -7,7 +7,7 @@ namespace web_app_Museo.Controllers
 {
     public class AdminController : Controller
     {
-   
+
 
         [HttpGet]
         public IActionResult Index()
@@ -18,7 +18,7 @@ namespace web_app_Museo.Controllers
                 listaProdotti = db.Prodotti.ToList();
             }
 
-          
+
             return View("Index", listaProdotti);
         }
 
@@ -37,7 +37,7 @@ namespace web_app_Museo.Controllers
             }
 
         }
-     
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -45,7 +45,7 @@ namespace web_app_Museo.Controllers
         {
             if (!ModelState.IsValid)
             {
-                
+
                 using (MuseoContext db = new MuseoContext())
                 {
                     List<Categoria> categorie = db.Categorie.ToList();
@@ -58,7 +58,7 @@ namespace web_app_Museo.Controllers
 
             }
 
-            
+
 
             using (MuseoContext db = new MuseoContext())
             {
@@ -75,7 +75,7 @@ namespace web_app_Museo.Controllers
             //Controlla questo
             return RedirectToAction("Index");
         }
-   
+
 
         public IActionResult Elimina(int? id)
         {
@@ -98,7 +98,7 @@ namespace web_app_Museo.Controllers
                 }
                 return View(prodottoDaEliminare);
             }
-               
+
         }
 
 
@@ -212,7 +212,7 @@ namespace web_app_Museo.Controllers
                 }
                 else
                 {
-                    return View("Rifornisci", prodottoDaRifornire);
+                    return View("Rifornimento", prodottoDaRifornire);
                 }
             }
 
@@ -223,21 +223,21 @@ namespace web_app_Museo.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    return View("Rifornisci", ProdottoDaRifornire);
+                    return View("Rifornimento", ProdottoDaRifornire);
                 }
 
-                Prodotto? QuantitaIniziale = null;
+                Rifornimento? QuantitaDaAggiungere = null;
 
                 using (MuseoContext db = new MuseoContext())
                 {
-                    QuantitaIniziale = db.Prodotti
+                   QuantitaDaAggiungere = db.Rifornimenti
                         .Where(prodotto => prodotto.Id == id)
                         .FirstOrDefault();
 
-
-                    if (QuantitaIniziale != null)
+                //ci sono dei cambaimenti da fare 
+                    if (QuantitaDaAggiungere != null)
                     {
-                        QuantitaIniziale.QuantitaDisponibile = ProdottoDaRifornire.QuantitaDisponibile;
+                        QuantitaDaAggiungere = Quantita
                         db.SaveChanges();
                         return RedirectToAction("Index");
                     }
@@ -247,7 +247,6 @@ namespace web_app_Museo.Controllers
                     }
                 }
             }
-    }         
-
+    }        
 }
 
