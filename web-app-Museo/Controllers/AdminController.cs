@@ -138,11 +138,13 @@ namespace web_app_Museo.Controllers
         public IActionResult Modifica(int id)
         {
             Prodotto? prodottoDaModificare = null;
+            List<Categoria> categorie = new List<Categoria>();
             using (MuseoContext db = new MuseoContext())
             {
-                prodottoDaModificare = db.Prodotti
+                    prodottoDaModificare = db.Prodotti
                     .Where(prodotto => prodotto.Id == id)
                     .FirstOrDefault();
+                categorie = db.Categorie.ToList<Categoria>();
             }
 
 
@@ -152,36 +154,47 @@ namespace web_app_Museo.Controllers
             }
             else
             {
-                return View("Modifica", prodottoDaModificare);
+                CategorieProdotti model = new CategorieProdotti();
+                model.Prodotti = prodottoDaModificare;
+                model.Categorie = categorie;
+                return View("Modifica", model);
             }
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Modifica(int id, Prodotto model)
+        public IActionResult Modifica(int id, CategorieProdotti model)
         {
             if (!ModelState.IsValid)
             {
-                return View("Modifica", model);
+                
+                using (MuseoContext db = new MuseoContext())
+                {
+                    List<Categoria> categorie = db.Categorie.ToList();
+
+                    model.Categorie = categorie;
+                    return View("Modifica", model);
+                }
             }
 
             Prodotto? prodottoOriginale = null;
 
             using (MuseoContext db = new MuseoContext())
             {
-                prodottoOriginale = db.Prodotti
+                    prodottoOriginale = db.Prodotti
                     .Where(prodotto => prodotto.Id == id)
                     .FirstOrDefault();
 
 
                 if (prodottoOriginale != null)
                 {
-                    prodottoOriginale.Immagine = model.Immagine;
-                    prodottoOriginale.Nome = model.Nome;
-                    prodottoOriginale.Descrizione = model.Descrizione;
-                    prodottoOriginale.Prezzo = model.Prezzo;
-                    prodottoOriginale.QuantitaDisponibile = model.QuantitaDisponibile;
+                    prodottoOriginale.Immagine = model.Prodotti.Immagine;
+                    prodottoOriginale.Nome = model.Prodotti.Nome;
+                    prodottoOriginale.Descrizione = model.Prodotti.Descrizione;
+                    prodottoOriginale.Prezzo = model.Prodotti.Prezzo;
+                    prodottoOriginale.QuantitaDisponibile = model.Prodotti.QuantitaDisponibile;
+                    prodottoOriginale.CategoriaId = model.Prodotti.CategoriaId;
 
                     db.SaveChanges();
 

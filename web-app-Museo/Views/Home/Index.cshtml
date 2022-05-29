@@ -1,5 +1,39 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div class="sfondoGiallo container-fluid justify-content-center p-3 text-center">
+    <h1 class="titolo">
+	<span>welcome</span> 
+</h1>
+</div>
 
-<marquee align="middle" behavior="scroll" direction="left"scrolldelay="5"><img src="/img/ogg.png"><img src="/img/museo1.png"></marquee>
+<section class="sfondoRosa py-5 ">
+    <div class="container-fluid justify-content-center p-3 text-center">
+       <h2>WHAT'S ON </h2>
+    </div>
+    <marquee 
+      onmouseover="this.stop();" onmouseout="this.start();"
+      width="100%"
+      behavior="alternate">
+      <img class="oggetto" src="~/img/oggetto1.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto2.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto3.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto4.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto5.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto6.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto7.jpg" alt="">
+      <img class="oggetto" src="~/img/oggetto8.jpg" alt="">
+    </marquee>
+</section>
+<div class="">
+    <div class="row sfondoVerde">
+        <div class="justify-content-center text-center bg-opacity-75 col-md-6 col-12">
+                <img src="~/img/Sfondo-sinistra.jpg" width="100%" height="900" alt="museo" />
+ 
+        </div>
+                <div class="container-fluid justify-content-center p-3 text-center bg-opacity-75 col-md-6 col-12">
+                    <h1 class="titolo"><b>NEWS</b></h1>
+
+            </div>
+    </div>
+</div>

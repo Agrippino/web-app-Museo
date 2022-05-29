@@ -1,35 +1,49 @@
-﻿@model Prodotto
+﻿@model CategorieProdotti
 <!-- form -->
-               <form method="post" action="@Url.Action("Modifica", "Admin")">
+<div class="container-fluid sfondoBlu">
+    <h1 class="col-12 text-center titolo p-3">Modifica</h1>
+    <hr />
+               <form method="post" action="@Url.Action("Modifica", "Admin")" class="row">
 	         @Html.AntiForgeryToken()
-	        <div class="mb-3 mt-3">
-	        <strong>Imamgine prodotto:</strong>
-	        <input asp-for="Immagine" class="d-block w-100" />
-	        <label for="floatingInputInvalid">Invalid input</label>
-	        <span asp-validation-for="Immagine" class="text-danger"></span>
+	        <div class="mb-3 col-md-6 col-12">
+	        <strong>Immagine prodotto:</strong>
+	        <input asp-for="Prodotti.Immagine" class="d-block w-100" />
+	        <span asp-validation-for="Prodotti.Immagine" class="text-danger"></span>
 	        </div>
-	        <div class="mb-3">
+	        <div class="mb-3 col-md-6 col-12">
 		        <strong>Nome prodotto:</strong>
-		        <input asp-for="Nome" class="d-block w-100" />
-		        <span asp-validation-for="Nome" class="text-danger"></span>
+		        <input asp-for="Prodotti.Nome" class="d-block w-100" />
+		        <span asp-validation-for="Prodotti.Nome" class="text-danger"></span>
 	        </div>
-		        <div class="mb-3">
+		        <div class="mb-3 col-md-6 col-12">
 		        <strong>Descrizione:</strong>
-		        <input asp-for="Descrizione" class="d-block w-100" />
-		        <span asp-validation-for="Descrizione" class="text-danger"></span>
+		        <input asp-for="Prodotti.Descrizione" class="d-block w-100" />
+		        <span asp-validation-for="Prodotti.Descrizione" class="text-danger"></span>
 	        </div>
-		        <div class="mb-3">
+		        <div class="mb-3 col-md-6 col-12">
 		        <strong>Prezzo prodotto:</strong>
-		        <input asp-for="Prezzo" class="d-block w-100" />
-		        <span asp-validation-for="Prezzo" class="text-danger"></span>
+		        <input asp-for="Prodotti.Prezzo" class="d-block w-100" />
+		        <span asp-validation-for="Prodotti.Prezzo" class="text-danger"></span>
 	        </div>
-	        <div class="mb-3">
-		        <strong>Quantità disponbile:</strong>
-		        <input asp-for="QuantitaDisponibile" class="d-block w-100" />
-		        <span asp-validation-for="QuantitaDisponibile" class="text-danger"></span>
-	        </div>  
-              <div class="modal-footer">
+			 <div class="mb-3 col-md-6 col-12">
+		        <strong>Quantita disponibile:</strong>
+		        <input asp-for="Prodotti.QuantitaDisponibile" class="d-block w-100" />
+		        <span asp-validation-for="Prodotti.QuantitaDisponibile" class="text-danger"></span>
+	        </div>
+				<div class="mb-3 col-6 justify-content-center text-center">
+					Categoria
+					<select asp-for="Prodotti.CategoriaId" class="form-select" aria-label="Default select example">
+						<option selected>Seleziona una categoria</option>
+						@foreach(Categoria categoria in Model.Categorie)
+						{
+							<option value="@categoria.Id">@categoria.Nome</option>
+						}
+					</select>
+				</div>
+
+              <div class="modal-footer col-12 text-center">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
                 <button type="submit" class="btn btn-primary btn-info">Salva modifiche</button>
               </div>
 	          </form> 
+</div>

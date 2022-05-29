@@ -1,9 +1,7 @@
 
 body {
-
-    font-family: 'Raleway';
+    font-family: 'Raleway', sans-serif;
     font-size: 22px;
-
 }
 
 .sfondoRosa {
@@ -28,4 +26,41 @@ body {
     background-color: rgba(154,209,139,255);
     background-size: cover;
     height: 100%;
+    width: 100%;
 }
+.sfondoBlu {
+    background-color: rgb(48, 127, 156);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+marquee {
+    height: 300px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.oggetto {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+}
+img + img {
+    margin-left: 40px;
+}
+
+.titolo {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 72px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+a {
+    color:black;
+    text-decoration:unset;
+}
+    
