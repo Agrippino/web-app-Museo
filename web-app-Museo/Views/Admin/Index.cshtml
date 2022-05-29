@@ -57,33 +57,30 @@
 
 
         <!-- Modal -->
+        <form action="@Url.Action("Elimina", "Admin", new {id= item.Id})" method="post">
+            @Html.AntiForgeryToken()
         <div class="modal fade" id="BottoneElimina" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Elimina @item.Nome  </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-
-                  <form action="@Url.Action("Elimina", "Admin", new {id= item.Id})" method="post">
-                                @Html.AntiForgeryToken()
-                                <button type="submit" class="btn btn-danger btn-sm">
-                                    Elimina
-                                </button>
-                   </form>
-                  
+                  <br>
+                    <p>Sei sicuro di voler elimniare @item.Nome ?</p>
+                  <br>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+              <button type="submit" class="btn btn-danger">Elimina</button>
+               </div>
+                    
                <!-- form -->
 	          </div>
             </div>
           </div>
         </div>
+        </form>
 }
     </tbody>
 </table>
-
-
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BottoneModifica">
-  Modifica
-</button>

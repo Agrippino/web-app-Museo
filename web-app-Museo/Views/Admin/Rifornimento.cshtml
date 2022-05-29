@@ -6,7 +6,7 @@
 	 @Html.AntiForgeryToken()
 
 	 <div class="mb-3">
-		 <strong>La quantità dint @Nome è di @QuantitaDisponibile</strong>
+		 <strong>La quantità dint è di </strong>
 		<strong>Inserisci qui il numero di unità per il rifornimento:</strong>
 		<input asp-for="QuantitaDisponibile" class="d-block w-100" />
 		<span asp-validation-for="QuantitaDisponibile" class="text-danger"></span>

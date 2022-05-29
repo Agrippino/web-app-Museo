@@ -207,59 +207,7 @@ namespace web_app_Museo.Controllers
             }
         }
 
-            [HttpGet]
-            public IActionResult Rifornimento(int id)
-            {
-                Prodotto? prodottoDaRifornire = null;
-                using (MuseoContext db = new MuseoContext())
-                {
-                    prodottoDaRifornire = db.Prodotti
-                        .Where(prodotto => prodotto.Id == id)
-                        .FirstOrDefault();
-                }
-
-
-                if (prodottoDaRifornire == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    return View("Rifornimento", prodottoDaRifornire);
-                }
-            }
-
-
-            [HttpPost]
-            [ValidateAntiForgeryToken]
-            public IActionResult Rifornimento(int id, Prodotto ProdottoDaRifornire)
-            {
-                if (!ModelState.IsValid)
-                {
-                    return View("Rifornimento", ProdottoDaRifornire);
-                }
-
-                Rifornimento? QuantitaDaAggiungere = null;
-
-                using (MuseoContext db = new MuseoContext())
-                {
-                   QuantitaDaAggiungere = db.Rifornimenti
-                        .Where(prodotto => prodotto.Id == id)
-                        .FirstOrDefault();
-
-                //ci sono dei cambaimenti da fare 
-                    if (QuantitaDaAggiungere != null)
-                    {
-                        QuantitaDaAggiungere = Quantita
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        return NotFound();
-                    }
-                }
-            }
+            
     }        
 }
 
