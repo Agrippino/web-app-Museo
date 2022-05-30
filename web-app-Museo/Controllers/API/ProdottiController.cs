@@ -10,12 +10,20 @@ namespace web_app_Museo.Controllers.API
     public class ProdottiController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(string? cerca)
         {
             List<Prodotto> listaProdotti = new List<Prodotto>();
             using (MuseoContext db = new MuseoContext())
             {
                 listaProdotti = db.Prodotti.ToList();
+                // LOGICA PER RICERCARE I POST CHE CONTENGONO NEL TIUOLO O NELLA DESCRIZIONE LA STRINGA DI RICERCA
+                if (cerca != null && cerca != "")
+                {
+                    listaProdotti = db.Prodotti
+                        .Where(box => box.Nome
+                        .Contains(cerca))
+                        .ToList<Prodotto>();
+                }
 
             }
                 return Ok(listaProdotti);
