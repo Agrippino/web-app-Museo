@@ -1,10 +1,11 @@
-﻿<div class="container">
+﻿
+<div class="container sfondoBlu my-2">
     <div class="row">
     <div id="prodotto-div" class="row js_prodotto_cards">
         <!-- qui verranno mostrati gli elementi -->
     </div>
     </div>
- </div>
+</div>
 
 @section Scripts {
 
@@ -24,11 +25,18 @@
                             `
                             <div class="container">
                             <div class="row">
-                            <div class="col-md-6 col-4 p-2">
-                              <img id="myimage" src="${result.data.immagine}" style=" height: 500px; width: 500px;" alt="${result.data.descrizione}">
+                            <div class="col-md-12 col-4 p-2 text-center">
+                            <div class=" sfondoGiallo bg-opacity-10 border border-info  rounded-start rounded-end">
+                             <h5 class="title mt-2">${result.data.nome}</h5>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-md-6 col-2 mb-2">
+                              <img id="myimage" src="${result.data.immagine}" style=" height: 500px; width: 500px;" Class="border border-2 border-warning rounded" alt="${result.data.descrizione}">
                             </div>
                             <div class="col-md-6 col-4 p-2">
-                                    <h5 class="title mt-2">${result.data.nome}</h5>
+                            <p class="text"> Descrizione </p>
                                     <p class="text">${result.data.descrizione}</p>
                                     <p class="text">${result.data.prezzo} €</p>
                              </div>
