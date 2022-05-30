@@ -195,7 +195,6 @@ namespace web_app_Museo.Controllers
                     prodottoOriginale.Prezzo = model.Prodotti.Prezzo;
                     prodottoOriginale.QuantitaDisponibile = model.Prodotti.QuantitaDisponibile;
                     prodottoOriginale.CategoriaId = model.Prodotti.CategoriaId;
-
                     db.SaveChanges();
 
                     return RedirectToAction("Index");
@@ -206,8 +205,9 @@ namespace web_app_Museo.Controllers
                 }
             }
         }
+        
+       
 
-            
     }        
 }
 
