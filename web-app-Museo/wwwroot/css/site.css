@@ -63,4 +63,14 @@ a {
     color:black;
     text-decoration:unset;
 }
-    
+
+input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+}
+.form-select {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+}
