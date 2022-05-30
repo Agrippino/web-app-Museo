@@ -10,55 +10,111 @@
 <section class="sfondoRosa py-5 ">
     <div class="container-fluid justify-content-center px-5 text-center">
        <h2>WHAT'S ON </h2>
-    <div class="container" >
-       <div class="row row-cols-1 row-cols-md-2 g-5 mx-5 ">
-          <div class="col">
-            <div class="card h-100 bg-transparent border-0">
-              <container class="bg-warning">  
-                <img src="..." class="card-img-top " alt="...">
-              </container> 
-              <div class="card-body ">
-                <h6 class="card-title">CATEGORIA</h6>
-                <h5 class="card-title fw-bold">Nome Prodotto</h5>
-                <p class="card-text fs-6 fw-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-              </div>
+
+       <div class="row">
+            <div class="col-12 ">
+                <div class="d-flex  justify-content-center mb-5">
+                    <div>
+                        <input class=" shadow border-0 rounded-pill" id="js_input_cerca" type="text" placeholder="Cerca un prodotto...">
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card  h-100 bg-transparent border-0">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body ">
-                <h6 class="card-title">CATEGORIA</h6>
-                <h5 class="card-title fw-bold">Nome Prodotto</h5>
-                <p class="card-text fs-6 fw-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card  h-100 bg-transparent border-0">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body ">
-                <h6 class="card-title">CATEGORIA</h6>
-                <h5 class="card-title fw-bold">Nome Prodotto</h5>
-                <p class="card-text fs-6 fw-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card  h-100 bg-transparent border-0">
-              <img src="..." class="card-img-top" alt="...">
-              <div class="card-body ">
-                <h6 class="card-title">CATEGORIA</h6>
-                <h5 class="card-title fw-bold">Nome Prodotto</h5>
-                <p class="card-text fs-6 fw-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              </div>
-            </div>
-          </div>
         </div>
+
+
+
+
+        <div  class="container" >
+
+            <!-- codice da inserire in js -->
+           <div id="js_prodotti_div" class="row row-cols-1 row-cols-md-2 g-5 mx-5 ">
+          
+
+
+           </div>
+
+           <div id="js_prodotti_attendi">
+               <h1> h1 di prova - attendi </h1>
+           </div>
+
+           <div id="js_prodotti_vuoto" class="d-none">
+               <h1> h1 di prova - db vuoto </h1>
+           </div>
+          
+          
+          
+        </div>
+    <!-- codice da inserire in js -->
     </div>
-    
     
 
 
 </section>
 
+@section Scripts {
+
+    <script type="text/javascript">
+    
+        document.getElementById("js_input_cerca").addEventListener('keyup', cercaInput);
+
+        cercaInput();
+
+        function cercaInput(){
+            let stringaDiRicerca = document.getElementById("js_input_cerca").value;
+            caricaProdotti(stringaDiRicerca);
+        }
+
+        function caricaProdotti(cercaParametro){
+
+            document.getElementById("js_prodotti_div").innerHTML = '';
+
+            axios.get('/API/Prodotti/Get', {
+                params : {
+                    cerca : cercaParametro
+                }
+            }).then((result) => {
+                console.log("Carico i pacchetti");
+
+                if(result.data.length == 0){
+                    document.getElementById('js_prodotti_attendi').classList.add('d-none');
+                    document.getElementById('js_prodotti_vuoto').classList.remove('d-none');
+                } else {
+                    document.getElementById('js_prodotti_attendi').classList.add('d-none');
+                    document.getElementById('js_prodotti_vuoto').classList.add('d-none');
+                    document.getElementById('js_prodotti_div').classList.remove('d-none');
+
+                    result.data.forEach(prodotto => {
+                        document.getElementById('js_prodotti_div').innerHTML +=
+                        `
+                            <div class="col">
+                                <div class="card h-100 bg-transparent border-0">
+                                  <container class="bg-warning">  
+                                    <img src="..." class="card-img-top " alt="...">
+                                  </container> 
+                                  <div class="card-body ">
+                                    <h6 class="card-title">${prodotto.categorie.nome}</h6>
+                                    <h5 class="card-title fw-bold">${prodotto.nome}</h5>
+                                    <p class="card-text fs-6 fw-light">${prodotto.descrizione}</p>
+                                  </div>
+                                </div>
+                              </div>
+                        `
+                    });
+                }
+            }).catch((error) => {
+                console.log("C'è stato un errore: " + error);
+            });
+        }
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+
+
+
+}

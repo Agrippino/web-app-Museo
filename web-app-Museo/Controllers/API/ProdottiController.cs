@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using web_app_Museo.Data;
 using web_app_Museo.Models;
 
@@ -10,15 +11,24 @@ namespace web_app_Museo.Controllers.API
     public class ProdottiController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(string? cerca)
         {
-            List<Prodotto> listaProdotti = new List<Prodotto>();
+            //List<Prodotto> listaProdotti = new List<Prodotto>();
             using (MuseoContext db = new MuseoContext())
             {
-                listaProdotti = db.Prodotti.ToList();
-
-            }
+                var listaProdotti = db.Prodotti.Include("Categorie").ToList();
+                // LOGICA PER RICERCARE I POST CHE CONTENGONO NEL TIUOLO O NELLA DESCRIZIONE LA STRINGA DI RICERCA
+                if (cerca != null && cerca != "")
+                {
+                    listaProdotti = db.Prodotti
+                        .Where(p => p.Nome
+                        .Contains(cerca))
+                        .Include("Categorie")
+                        .ToList();
+                }
                 return Ok(listaProdotti);
+            }
+                
         }
 
         [HttpGet("{id}")]
