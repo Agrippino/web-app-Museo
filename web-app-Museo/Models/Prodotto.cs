@@ -34,6 +34,7 @@ namespace web_app_Museo.Models
         public int? CategoriaId { get; set; }
         
         public Categoria? Categorie { get; set; }
+        [JsonIgnore]
         public List<Acquisto>? Acquisti { get; set; }
         public List<Rifornimento>? Rifornimenti { get; set; }
 
