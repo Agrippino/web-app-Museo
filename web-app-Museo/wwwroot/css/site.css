@@ -34,7 +34,12 @@ body {
     height: 100%;
     width: 100%;
 }
-
+.sfondoPergamena {
+    background-color: rgb(219,198,145);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
 
 
 marquee {
