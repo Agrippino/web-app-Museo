@@ -5,7 +5,7 @@ using web_app_Museo.Models;
 
 namespace web_app_Museo.Controllers.API
 {
-    [Route("api/[controller/Action]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProdottiController : ControllerBase
     {
