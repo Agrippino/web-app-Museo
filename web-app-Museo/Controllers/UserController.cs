@@ -8,5 +8,11 @@ namespace web_app_Museo.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Dettagli()
+        {
+            return View();
+        }
     }
 }

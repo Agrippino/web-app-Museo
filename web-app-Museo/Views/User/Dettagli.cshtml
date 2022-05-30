@@ -1,0 +1,83 @@
+﻿<div class="container">
+    <div class="row">
+    </div>
+    <div id="prodotto-wait" class="row js_wait_prodotto text-center">
+        <div class="col-12">
+            <h3>Sto aspettando il prodotto ...</h3>
+        </div>
+    </div>
+    <div id="no-prodotto-div" class="row js_no_prodotto text-center d-none">
+        <div class="col-12">
+            <h3>Nessun prodotto visualizzato</h3>
+        </div>
+    </div>
+    <div id="prodotto-div" class="row js_prodotto_cards d-none">
+        <!-- qui verranno mostrati gli elementi -->
+    </div>
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        document.getElementById("search_input").addEventListener('keyup', searchItems);
+
+        searchItems();
+
+        function searchItems(){
+            var inputText = document.getElementById('search_input').value;
+            loadProdotto(inputText);
+        }
+
+        function loadProdotto(searchParameter){
+            document.getElementById('prodotto-div').innerHTML = '';
+
+            axios.get('/api/Prodotti/Get', {
+                params : {
+                    search : searchParameter
+                }
+            }).then((result) => {
+                // Codice che verrà eseguito quando arrivano i dati dalla mia web api
+                console.log("Ho ricevuto il prodotto da visualizzare");
+
+                if(result.data.length == 0){
+                    document.getElementById('prodotto-wait').classList.add('d-none');
+                    document.getElementById('no-prodotto-div').classList.remove('d-none');
+                } else {
+                    document.getElementById('no-prodotto-div').classList.add('d-none');
+                    document.getElementById('prodotto-wait').classList.add('d-none');
+                    document.getElementById('prodotto-div').classList.remove('d-none');
+
+                   result.data.forEach(listaProdotti => { 
+
+                    
+
+                       document.getElementById('prodotto-div').innerHTML += 
+                            `
+                            <div class="container">
+                            <div class="row">
+                            <div class="col-6 col-md-4 p-2">
+                           <div class="img-zoom-container">
+                              <img id="myimage" src="${listaProdotti.immagini}" width="300" height="240" alt="Girl" alt="${listaProdotti.descrizione}">
+                              <div id="myresult" class="img-zoom-result"></div>
+                            </div>
+                                  <div class="col-6 col-md-4 p-2">
+                                    <h5 class="title">${nome}</h5>
+                                    <p class="text">${descrizione}</p>
+                                    <p class="text">${prezzo} €</p>
+                                  </div>
+                                </div>
+                            </div>
+                            `
+                    });
+                }
+
+            }
+
+            ).catch((error) => {
+                console.log("C'è stato un errore: " + error);
+            });
+        }
+    
+    </script>
+}
