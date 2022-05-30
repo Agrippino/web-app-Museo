@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace web_app_Museo.Models
 {
@@ -31,6 +32,7 @@ namespace web_app_Museo.Models
         }
 
         public int? CategoriaId { get; set; }
+        
         public Categoria? Categorie { get; set; }
         public List<Acquisto>? Acquisti { get; set; }
         public List<Rifornimento>? Rifornimenti { get; set; }
