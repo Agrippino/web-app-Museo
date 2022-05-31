@@ -84,12 +84,13 @@
                     document.getElementById('js_prodotti_div').classList.remove('d-none');
 
                     result.data.forEach(prodotto => {
+                       
                         document.getElementById('js_prodotti_div').innerHTML +=
                         `
                             <div class="col">
                                 <div class="card h-100 bg-transparent border-0">
-                                  <container class="bg-warning">  
-                                    <img src="..." class="card-img-top " alt="...">
+                                  <container class="bg-warning" style="aspect-ratio: 10/12;">  
+                                    <img src="${prodotto.immagine}" class="card-img-top py-5 px-5" alt="${prodotto.nome}">
                                   </container> 
                                   <div class="card-body ">
                                     <h6 class="card-title">${prodotto.categorie.nome}</h6>
