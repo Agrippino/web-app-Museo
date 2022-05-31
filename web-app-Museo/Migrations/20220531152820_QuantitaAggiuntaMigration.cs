@@ -4,15 +4,15 @@
 
 namespace web_app_Museo.Migrations
 {
-    public partial class migrazioneConView1 : Migration
+    public partial class QuantitaAggiuntaMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-           migrationBuilder.Sql(@"Create VIEW QuantitaDisponibili
+            migrationBuilder.Sql(@"Create VIEW QuantitaAggiunte
                                 AS
                                 SELECT
                                     p.Id,
-                                    SUM(r.QuantitaDaAggiungere) AS Totale
+                                    SUM(r.QuantitaDaAggiungere) AS QuantitaTotale
                                 FROM
                                     Rifornimenti AS r
                                     INNER JOIN
@@ -25,7 +25,7 @@ namespace web_app_Museo.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql(@"
-            drop view QuantitaDisponibili;
+            drop view QuantitaAggiunte;
             ");
         }
     }

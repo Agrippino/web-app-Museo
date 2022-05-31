@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using web_app_Museo.Data;
 
@@ -11,9 +12,10 @@ using web_app_Museo.Data;
 namespace web_app_Museo.Migrations
 {
     [DbContext(typeof(MuseoContext))]
-    partial class MuseoContextModelSnapshot : ModelSnapshot
+    [Migration("20220531150137_migrazioneConViewAggiornatoNuovo")]
+    partial class migrazioneConViewAggiornatoNuovo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,19 +103,19 @@ namespace web_app_Museo.Migrations
                     b.ToTable("Prodotti");
                 });
 
-            modelBuilder.Entity("web_app_Museo.Models.QuantitaAggiunta", b =>
+            modelBuilder.Entity("web_app_Museo.Models.quantitaDisponibile", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Totale")
+                    b.Property<int>("QuantitaTotale")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToView("QuantitaAggiunte");
+                    b.ToView("QuantitaDisponibili");
                 });
 
             modelBuilder.Entity("web_app_Museo.Models.Rifornimento", b =>

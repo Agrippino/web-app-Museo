@@ -25,7 +25,7 @@ namespace web_app_Museo.Controllers
             using (MuseoContext db = new MuseoContext())
             {
 
-                var quantita = db.QuantitaDisponibili.ToList();
+                var quantita = db.QuantitaAggiunte.ToList();
                 return View(quantita);
             }
 
