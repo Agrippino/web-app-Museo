@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using web_app_Museo.Data;
 
 namespace web_app_Museo.Controllers
 {
@@ -19,5 +20,16 @@ namespace web_app_Museo.Controllers
         {
             return View();
         }
+        public IActionResult prova()
+        {
+            using (MuseoContext db = new MuseoContext())
+            {
+
+                var quantita = db.QuantitaDisponibili.ToList();
+                return View(quantita);
+            }
+
+        }
+
     }
 }

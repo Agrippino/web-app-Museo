@@ -4,11 +4,11 @@
 
 namespace web_app_Museo.Migrations
 {
-    public partial class QuantitaMigrationVuota : Migration
+    public partial class migrazioneConView : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

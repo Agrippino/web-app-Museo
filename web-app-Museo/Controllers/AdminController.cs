@@ -226,9 +226,12 @@ namespace web_app_Museo.Controllers
                     .Where(Prodotto => Prodotto.Id == id)
                     .FirstOrDefault();
 
+
+                
                 if (ProdottoDaRifornire != null)
-                {   
-                                    
+                {
+
+                    
                     db.SaveChanges();
 
                     return RedirectToAction("Index");
