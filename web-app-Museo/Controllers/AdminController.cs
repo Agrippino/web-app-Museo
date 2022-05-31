@@ -205,8 +205,42 @@ namespace web_app_Museo.Controllers
                 }
             }
         }
-        
-       
+
+        [HttpPost]
+        public IActionResult Rifornimento(int id, ProdottiRifornimenti model)
+        {
+            if (!ModelState.IsValid)
+            {
+                using (MuseoContext db = new MuseoContext())
+                {
+                    List<Rifornimento> rifornimenti= db.Rifornimenti.ToList();
+                    model.Rifornimenti = rifornimenti;
+
+                }
+                return View("Rifornimento", model);
+            }
+            Prodotto ProdottoDaRifornire = null;
+            using (MuseoContext db = new MuseoContext())
+            {
+                ProdottoDaRifornire = db.Prodotti
+                    .Where(Prodotto => Prodotto.Id == id)
+                    .FirstOrDefault();
+
+                if (ProdottoDaRifornire != null)
+                {   
+                                    
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+
+        }
+
 
     }        
 }
