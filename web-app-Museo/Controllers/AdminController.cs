@@ -67,7 +67,7 @@ namespace web_app_Museo.Controllers
                 nuovoProdottoDaAggiungere.Nome = nuovoProdotto.Prodotti.Nome;
                 nuovoProdottoDaAggiungere.Descrizione = nuovoProdotto.Prodotti.Descrizione;
                 nuovoProdottoDaAggiungere.Prezzo = nuovoProdotto.Prodotti.Prezzo;
-                nuovoProdottoDaAggiungere.QuantitaDisponibile = nuovoProdotto.Prodotti.QuantitaDisponibile;
+                nuovoProdottoDaAggiungere.QuantitaDisponibile = 0;
                 nuovoProdottoDaAggiungere.CategoriaId = nuovoProdotto.Prodotti.CategoriaId;
                 db.Prodotti.Add(nuovoProdottoDaAggiungere);
                 db.SaveChanges();
@@ -193,7 +193,7 @@ namespace web_app_Museo.Controllers
                     prodottoOriginale.Nome = model.Prodotti.Nome;
                     prodottoOriginale.Descrizione = model.Prodotti.Descrizione;
                     prodottoOriginale.Prezzo = model.Prodotti.Prezzo;
-                    prodottoOriginale.QuantitaDisponibile = model.Prodotti.QuantitaDisponibile;
+                    prodottoOriginale.QuantitaDisponibile = prodottoOriginale.QuantitaDisponibile;
                     prodottoOriginale.CategoriaId = model.Prodotti.CategoriaId;
                     db.SaveChanges();
 
@@ -205,8 +205,42 @@ namespace web_app_Museo.Controllers
                 }
             }
         }
-        
-       
+
+        [HttpPost]
+        public IActionResult Rifornimento(int id, ProdottiRifornimenti model)
+        {
+            if (!ModelState.IsValid)
+            {
+                using (MuseoContext db = new MuseoContext())
+                {
+                    List<Rifornimento> rifornimenti= db.Rifornimenti.ToList();
+                    model.Rifornimenti = rifornimenti;
+
+                }
+                return View("Rifornimento", model);
+            }
+            Prodotto ProdottoDaRifornire = null;
+            using (MuseoContext db = new MuseoContext())
+            {
+                ProdottoDaRifornire = db.Prodotti
+                    .Where(Prodotto => Prodotto.Id == id)
+                    .FirstOrDefault();
+
+                if (ProdottoDaRifornire != null)
+                {   
+                                    
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+
+        }
+
 
     }        
 }
