@@ -38,12 +38,12 @@
 </div>
 
 @section Scripts {
+
     <script type="text/javascript">
 
             axios.get('/api/Acquisti/Get').then((result) => {
                 // Codice che verrà eseguito quando arrivano i dati dalla mia web api
                 console.log("Ho ricevuto il prodotto da visualizzare");
-
                 if(result.data.length == 0){
                     document.getElementById('attesa-prodotto').classList.add('d-none');
                     document.getElementById('prodotto-non-disponibile').classList.remove('d-none');
@@ -53,27 +53,31 @@
                     document.getElementById('prodotto-disponibile').classList.remove('d-none');
 
                    result.data.forEach(listaProdotti => { 
-
+  
+                   
+                   var formatoData = moment(listaProdotti.data).format('DD-MM-YYYY HH:mm');
+                
+                
                     
 
                        document.getElementById('prodotto-disponibile').innerHTML += 
-                            `
+                   `
                    <div class="row">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td class=col-4>
-                                    ${listaProdotti.prodotti.nome}
-                                </td>
-                                <td class=col-4>
-                                   ${listaProdotti.quantitaDaAcquistare}
-                                </td>
-                                <td class=col-4>
-                                    ${listaProdotti.data}
-                                </td>
-                            </tr>
-                       </tbody>
-                    </table>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class=col-4>
+                                        ${listaProdotti.prodotti.nome}
+                                    </td>
+                                    <td class=col-4>
+                                       ${listaProdotti.quantitaDaAcquistare}
+                                    </td>
+                                    <td class=col-4>
+                                        ${formatoData}
+                                    </td>
+                                </tr>
+                           </tbody>
+                        </table>
                     </div>
                    `
                     });
