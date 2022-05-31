@@ -67,7 +67,7 @@ namespace web_app_Museo.Controllers
                 nuovoProdottoDaAggiungere.Nome = nuovoProdotto.Prodotti.Nome;
                 nuovoProdottoDaAggiungere.Descrizione = nuovoProdotto.Prodotti.Descrizione;
                 nuovoProdottoDaAggiungere.Prezzo = nuovoProdotto.Prodotti.Prezzo;
-                nuovoProdottoDaAggiungere.QuantitaDisponibile = nuovoProdotto.Prodotti.QuantitaDisponibile;
+                nuovoProdottoDaAggiungere.QuantitaDisponibile = 0;
                 nuovoProdottoDaAggiungere.CategoriaId = nuovoProdotto.Prodotti.CategoriaId;
                 db.Prodotti.Add(nuovoProdottoDaAggiungere);
                 db.SaveChanges();
@@ -193,7 +193,7 @@ namespace web_app_Museo.Controllers
                     prodottoOriginale.Nome = model.Prodotti.Nome;
                     prodottoOriginale.Descrizione = model.Prodotti.Descrizione;
                     prodottoOriginale.Prezzo = model.Prodotti.Prezzo;
-                    prodottoOriginale.QuantitaDisponibile = model.Prodotti.QuantitaDisponibile;
+                    prodottoOriginale.QuantitaDisponibile = prodottoOriginale.QuantitaDisponibile;
                     prodottoOriginale.CategoriaId = model.Prodotti.CategoriaId;
                     db.SaveChanges();
 

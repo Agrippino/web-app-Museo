@@ -13,5 +13,13 @@ namespace web_app_Museo.Data
         {
             optionsBuilder.UseSqlServer("Data Source=localhost;Database=DbMuseo; Integrated Security=True");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+            .Entity<quantitaDisponibile>()
+            .ToView(nameof(ProductionRatingAverages))
+            .HasKey(t => t.Id);
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace web_app_Museo.Models
 
         public double Prezzo { get; set; }
         [Required(ErrorMessage = "Per favore inserisci la quantità disponibile del prodotto, questo campo è obbligatorio")]
-        [Range(1, 1000, ErrorMessage = "Mi dispiaice hai inserito una quantità non valida, il minimo è 1 mentre il massimo è 10000")]
+        [Range(0, 1000, ErrorMessage = "Mi dispiace hai inserito una quantità non valida, il minimo è 1 mentre il massimo è 10000")]
         public int QuantitaDisponibile { get; set; }
 
         public Prodotto()
