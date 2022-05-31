@@ -1,10 +1,12 @@
 ﻿
-<div class="container sfondoBlu my-2">
+<div class="sfondoBlu">
+<div class="container sfondoBlu">
     <div class="row">
     <div id="prodotto-div" class="row js_prodotto_cards">
         <!-- qui verranno mostrati gli elementi -->
     </div>
     </div>
+</div>
 </div>
 
 @section Scripts {
@@ -36,10 +38,12 @@
                               <img id="myimage" src="${result.data.immagine}" style=" height: 500px; width: 500px;" Class="border border-2 border-warning rounded" alt="${result.data.descrizione}">
                             </div>
                             <div class="col-md-6 col-4 p-2">
+                            <div class="p-3 sfondoGiallo bg-opacity-10 border border-info border-start-0 rounded-start">
                             <p class="text"> Descrizione: </p>
                             <p class="text my-2">${result.data.descrizione}</p>
-                            <p class="text"> Costo: </p>
+                             <p class="text"> Costo: </p>
                             <p class="text my-2">${result.data.prezzo} €</p>
+                            </div>
                              </div>
                             </div>
                            </div>                          
