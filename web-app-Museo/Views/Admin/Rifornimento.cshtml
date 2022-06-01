@@ -7,43 +7,16 @@
 <h1>Stato Magazzino</h1>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                QuantitaTotale
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Prodotti) {
-        <tr>
-            <td>
-                @item.Nome
-            </td>
-          
-        </tr>
-        
-}
-
-    </tbody>
-</table>
 
 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 @foreach (var item in Model.QuantitaDisponibili) {
         
         
           <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('@item.Immagine');">
               <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                 <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">@item.Nome</h2>
                 <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <img src="@item.Immagine" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
-                  </li>
                   <li class="d-flex align-items-center me-3">
                     <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
                     <small>@item.Categoria</small>
