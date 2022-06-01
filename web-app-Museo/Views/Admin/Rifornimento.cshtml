@@ -1,5 +1,47 @@
-﻿@model Prodotto
+﻿@model dynamic
+@{
+    ViewBag.Title = "Rifornimento";
+}
 
+<h1>Stato Magazzino</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                QuantitaTotale
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Prodotti) {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Nome
+            </td>
+        </tr>
+        
+}
+
+    </tbody>
+</table>
+
+
+@foreach (var item in Model.QuantitaDisponibili) {
+        <h1>@item.Id</h1>
+        <h1>@item.QuantitaTotale</h1>
+        
+}
+
+
+<!--
 <div class="container">
 	<div class="row">
 		 <form method="post" action="@Url.Action("Rifornimento", "Admin")">
@@ -19,3 +61,4 @@
 
 	</div>
 </div>
+-->
