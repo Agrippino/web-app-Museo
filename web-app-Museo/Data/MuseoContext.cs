@@ -11,6 +11,7 @@ namespace web_app_Museo.Data
         public DbSet<Rifornimento> Rifornimenti { get; set; }
         public DbSet<QuantitaAggiunta> QuantitaAggiunte { get; set; }
         public DbSet<QuantitaAcquistata> QuantitaAcquistate { get; set; }
+        public DbSet<QuantitaDisponibile> QuantitaDisponibili { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=localhost;Database=DbMuseo; Integrated Security=True");
@@ -26,6 +27,11 @@ namespace web_app_Museo.Data
             modelBuilder
             .Entity<QuantitaAcquistata>()
             .ToView(nameof(QuantitaAcquistate))
+            .HasKey(t => t.Id);
+
+            modelBuilder
+            .Entity<QuantitaDisponibile>()
+            .ToView(nameof(QuantitaDisponibili))
             .HasKey(t => t.Id);
         }
     }
