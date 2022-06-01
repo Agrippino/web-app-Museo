@@ -40,6 +40,11 @@ namespace web_app_Museo.Data
            .Entity<ClassificaProdotto>()
            .ToView(nameof(ClassificaProdotti))
            .HasKey(t => t.Id);
+
+            modelBuilder
+            .Entity<Prodotto>()
+            .Property(b => b.QuantitaDisponibile)
+            .HasDefaultValue(0);
         }
     }
 }

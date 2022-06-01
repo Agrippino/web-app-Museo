@@ -38,13 +38,12 @@ namespace web_app_Museo.Models
         public List<Acquisto>? Acquisti { get; set; }
         public List<Rifornimento>? Rifornimenti { get; set; }
 
-        public Prodotto(string immagine,string nome, string descrizione, double prezzo, int quantitadisponibile)
+        public Prodotto(string immagine,string nome, string descrizione, double prezzo)
         {
             this.Immagine= immagine;
             this.Nome= nome;
             this.Descrizione= descrizione; 
             this.Prezzo= prezzo;
-            this.QuantitaDisponibile= quantitadisponibile;
 
         }
 

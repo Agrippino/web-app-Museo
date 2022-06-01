@@ -1,6 +1,7 @@
-﻿@model List<ClassificaProdotto>
+﻿@model List<QuantitaAggiunta>
 
-    @foreach(ClassificaProdotto categoria in Model)
+    @foreach(QuantitaAggiunta categoria in Model)
                         {
-                           <h1>@categoria.ProdottiVenduti</h1> 
+                           <h1>@categoria.QuantitaTotale</h1>
+                           <h1>@categoria.Nome</h1> 
                         }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using web_app_Museo.Data;
 
@@ -11,9 +12,10 @@ using web_app_Museo.Data;
 namespace web_app_Museo.Migrations
 {
     [DbContext(typeof(MuseoContext))]
-    partial class MuseoContextModelSnapshot : ModelSnapshot
+    [Migration("20220601214636_ProdottoAggiornato")]
+    partial class ProdottoAggiornato
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,10 +127,6 @@ namespace web_app_Museo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("QuantitaTotale")
                         .HasColumnType("int");
 
@@ -144,10 +142,6 @@ namespace web_app_Museo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("QuantitaTotale")
                         .HasColumnType("int");
 
@@ -162,10 +156,6 @@ namespace web_app_Museo.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("QuantitaTotale")
                         .HasColumnType("int");
