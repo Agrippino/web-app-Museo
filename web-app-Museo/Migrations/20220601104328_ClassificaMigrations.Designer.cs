@@ -12,8 +12,8 @@ using web_app_Museo.Data;
 namespace web_app_Museo.Migrations
 {
     [DbContext(typeof(MuseoContext))]
-    [Migration("20220531171114_QuantitaDisponibileMigration")]
-    partial class QuantitaDisponibileMigration
+    [Migration("20220601104328_ClassificaMigrations")]
+    partial class ClassificaMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -131,6 +131,21 @@ namespace web_app_Museo.Migrations
                     b.HasKey("Id");
 
                     b.ToView("QuantitaAggiunte");
+                });
+
+            modelBuilder.Entity("web_app_Museo.Models.QuantitaDisponibile", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("QuantitaTotale")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToView("QuantitaDisponibili");
                 });
 
             modelBuilder.Entity("web_app_Museo.Models.Rifornimento", b =>
