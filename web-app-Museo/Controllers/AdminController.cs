@@ -205,6 +205,25 @@ namespace web_app_Museo.Controllers
                 }
             }
         }
+        
+
+        //GET RIFORNIMENTO utilizzando un modello dinamico, in modo da ricevere sia il modello prodotto che la tabella view di entity framework con la quanità totale
+        [HttpGet]
+        public IActionResult Rifornimento()
+        {
+            using (MuseoContext db = new MuseoContext())
+            {
+                var quantitaDisponibili = db.QuantitaDisponibili.ToList();
+                var prodotti = db.Prodotti.ToList();
+                dynamic myDynamicmodel = new System.Dynamic.ExpandoObject();
+                myDynamicmodel.QuantitaDisponibili = quantitaDisponibili;
+                myDynamicmodel.Prodotti = prodotti;
+                return View(myDynamicmodel);
+            }
+
+
+        }
+
 
         [HttpPost]
         public IActionResult Rifornimento(int id, ProdottiRifornimenti model)

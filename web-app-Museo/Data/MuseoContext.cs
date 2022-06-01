@@ -33,6 +33,7 @@ namespace web_app_Museo.Data
             .Entity<QuantitaDisponibile>()
             .ToView(nameof(QuantitaDisponibili))
             .HasKey(t => t.Id);
+
         }
     }
 }
