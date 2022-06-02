@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<ClassificaProdotto>
 
 <div class="sfondoGiallo container-fluid justify-content-center p-3 text-center">
     <h1 class="titolo">
@@ -8,22 +9,18 @@
 </h1>
 </div> 
 
-<section class="sfondoRosa py-5 ">
+<section class= "sfondoRosa py-5 ">
     <div class="container-fluid justify-content-center p-3 text-center">
        <h2>WHAT'S ON </h2>
     </div>
- 
-    <marquee behavior="scroll" scrollamount="3" direction="left" width="350">
-      <img class="oggetto" src="~/img/oggetto1.jpg" alt="">
-      <img class="oggetto" src="~/img/oggetto2.jpg" alt="">
-      <img class="oggetto" src="~/img/oggetto3.jpg" alt="">
-      <img class="oggetto" src="~/img/oggetto4.jpg" alt="">
-      <img class="oggetto" src="~/img/oggetto5.jpg" alt="">
-      <img class="oggetto" src="~/img/oggetto6.jpg" alt="">
-      <img class="oggetto" src="~/img/oggetto7.jpg" alt="">
-      <img class="oggetto" src="~/img/oggetto8.jpg" alt="">
-    </marquee>
+        @foreach(ClassificaProdotto categoria in Model) {
+           <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" width="100%" class="m-3" >
+                    <img class="img " src="@categoria.Immagine" alt="">
+                    <h5 class="text">@categoria.Nome</h5> 
+            </marquee>
+            }
 </section>
+
 <div class="">
     <div class="row sfondoPergamena">
         <div class="justify-content-center text-center bg-opacity-75 col-md-6 col-12">

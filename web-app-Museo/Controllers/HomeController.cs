@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using web_app_Museo.Data;
 using web_app_Museo.Models;
 
 namespace web_app_Museo.Controllers
@@ -15,7 +16,12 @@ namespace web_app_Museo.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            using (MuseoContext db = new MuseoContext())
+            {
+                var quantita = db.ClassificaProdotti.ToList();
+                  return View(quantita);
+            }
+          
         }
 
         public IActionResult Privacy()
