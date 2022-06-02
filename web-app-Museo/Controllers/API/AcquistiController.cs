@@ -17,9 +17,9 @@ namespace web_app_Museo.Controllers.API
             using (MuseoContext db = new MuseoContext())
             {
                 // Load all blogs and related posts.
-               var acquistiMensili = db.Acquisti
-                                    .Include(b => b.Prodotti)
-                                    .ToList();
+               var acquistiMensili = db.ClassificaProdotti
+                    .ToList();
+               
 
                 return Ok(acquistiMensili);
             }
