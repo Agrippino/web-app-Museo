@@ -91,7 +91,3 @@ input {
     -webkit-transition: height 1s;
 }
 
-input:focus {
-        height: 50px;
-        font-size: 16px;
-}

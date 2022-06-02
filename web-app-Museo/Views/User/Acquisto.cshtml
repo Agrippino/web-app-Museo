@@ -6,8 +6,8 @@
 <form method="post" action="@Url.Action("Acquisto", "User")" class="row">
                 @Html.AntiForgeryToken()
                 <div class="form-group col-md-6 col-12">
-                    <label asp-for="Acquisti.QuantitaDaAcquistare" class="control-label"></label>
-                    <input asp-for="Acquisti.QuantitaDaAcquistare" class="form-control"/>
+                    <label asp-for="Acquisti.QuantitaDaAcquistare" class="control-label" ></label>
+                    <input asp-for="Acquisti.QuantitaDaAcquistare" class="form-control" id="FormModifica"/>
                 </div>
                 <div class="col-md-6 col-12">
                     Prodotto Da acquistare
