@@ -1,0 +1,26 @@
+﻿@model ProdottiAcquisti     
+
+<div class="container-fluid sfondoBlu">
+    <h1 class="col-12 text-center titolo p-3">Acquista Prodotto</h1>
+    <hr />
+<form method="post" action="@Url.Action("Acquisto", "User")" class="row">
+                @Html.AntiForgeryToken()
+                <div class="form-group col-md-6 col-12">
+                    <label asp-for="Acquisti.QuantitaDaAcquistare" class="control-label"></label>
+                    <input asp-for="Acquisti.QuantitaDaAcquistare" class="form-control"/>
+                </div>
+                <div class="col-md-6 col-12">
+                    Prodotto Da acquistare
+                    <select asp-for="Acquisti.ProdottoId" class="form-select" aria-label="Default select example">
+                        <option selected>Seleziona un prodotto</option>
+                        @foreach(Prodotto sceltaProdotti in Model.Prodotti)
+                        {
+                            <option value="@sceltaProdotti.Id">@sceltaProdotti.Nome</option>
+                        }
+                    </select>
+                    <div class="form-group col-12 text-center">
+                        <input type="submit" value="Acquisto" class="btn btn-warning m-4 " />
+                   </div>
+                </div>
+            </form>
+</div>

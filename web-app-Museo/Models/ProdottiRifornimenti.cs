@@ -2,7 +2,7 @@
 {
     public class ProdottiRifornimenti
     {
-        public Prodotto? Prodotti { get; set; }
-        public List<Rifornimento>? Rifornimenti { get; set; }
+        public Rifornimento? Rifornimenti { get; set; }
+        public List<Prodotto>? Prodotti { get; set; }
     }
 }
