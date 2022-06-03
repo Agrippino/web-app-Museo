@@ -96,7 +96,7 @@
                                     <h6 class="card-title">${prodotto.categorie.nome}</h6>
                                     <h5 class="card-title fw-bold">${prodotto.nome}</h5>
                                     <ul class="wrapper">
-                                    <a onclick="Like(event, ${prodotto.id})" >
+                                    <a onclick="Like(${prodotto.id})" >
                                       <li class="icon facebook ">
                                         <span class="tooltip">LIKE</span>
                                         <span><img src="/img/cuore.png" width="26" height="29"/></span>
@@ -126,20 +126,17 @@
     
     
     //Funzione like
-             function Like(event, prodottoId)
+             function Like(prodottoId)
             {
-                    event.preventDefault();
-                    console.log(prodottoId);
-                    var id = prodottoId;
-                axios.post('/api/prodotti/like' , {
-                params : {
-                    id: prodottoId
-                }
+                console.log(prodottoId);
+                    
+                axios.post('/api/Prodotti/Like' , {
+                    ProdottoId: prodottoId
+                    
                 }).then((result) => {
                     alert("Il tuo like é stato registrato correttamente!");
                 }).catch((error) => {
                     console.log("C'è stato un errore: " + error);
-                    console.log(acquistoUtente)
                 });
             }
     
