@@ -90,17 +90,29 @@
                             <div class="col">
                                 <div class="card h-100 bg-transparent border-0">
                                   <container class="bg-warning">  
-                                    <img src="${prodotto.immagine}" class="card-img-top mx-auto d-block p-5" alt="${prodotto.nome}">
+                                    <img src="${prodotto.immagine}" height="600" width="400" class="card-img-top mx-auto d-block p-5" alt="${prodotto.nome}">
                                   </container> 
                                   <div class="card-body ">
                                     <h6 class="card-title">${prodotto.categorie.nome}</h6>
                                     <h5 class="card-title fw-bold">${prodotto.nome}</h5>
-                                    <p class="card-text fs-6 fw-light">${prodotto.descrizione}</p>
-                                    <a href="Dettagli/${prodotto.id}" class="stretched-link"></a>
-                                        <div class="middle">
-                                        <a href="" class="btn btn1">Hover Me</a>
-                                        </div>
+                                    <ul class="wrapper">
+                                    <a onclick="Like(event, ${prodotto.id})" >
+                                      <li class="icon facebook ">
+                                        <span class="tooltip">LIKE</span>
+                                        <span><img src="/img/cuore.png" width="26" height="29"/></span>
+                                      </li>
+                                     </a>
+                                     <a href="Dettagli/${prodotto.id}" >
+                                      <li class="icon facebook" >
+                                        <span class="tooltip">SHOP</span>
+                                        <span > <img src="/img/carrello.png" width="20" height="20"/></span>
+                                      </li>
+                                      </a>
+
+                                    </ul>
                                   </div>
+                                  
+                                  
                                 </div>
                               </div>
                         `
@@ -113,7 +125,23 @@
     
     
     
-    
+    //Funzione like
+             function Like(event, prodottoId)
+            {
+                    event.preventDefault();
+                    console.log(prodottoId);
+                    var id = prodottoId;
+                axios.post('/api/prodotti/like' , {
+                params : {
+                    id: prodottoId
+                }
+                }).then((result) => {
+                    alert("Il tuo like é stato registrato correttamente!");
+                }).catch((error) => {
+                    console.log("C'è stato un errore: " + error);
+                    console.log(acquistoUtente)
+                });
+            }
     
     
     </script>

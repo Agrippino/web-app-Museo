@@ -49,5 +49,24 @@ namespace web_app_Museo.Controllers.API
             }
         }
 
+        [HttpPost]
+        public IActionResult Like(int id)
+        {
+                Prodotto modello = null;
+              
+            using (MuseoContext db = new MuseoContext())
+            {
+
+                modello = db.Prodotti
+                    .Where(n => n.Id == id)
+                    .FirstOrDefault();
+
+                    modello.like += 1;
+                    return Ok();
+
+
+            }
+        }
+
     }
 }
