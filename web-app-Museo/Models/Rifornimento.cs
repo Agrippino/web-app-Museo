@@ -10,9 +10,9 @@ namespace web_app_Museo.Models
         [Range(1, 1000, ErrorMessage = "Il valore inserito non è corretto")]
         public int QuantitaDaAggiungere { get; set; }
 
-        public int? ProdottoId { get; set; }
+        public int ProdottoId { get; set; }
 
-        public Prodotto? Prodotto { get; set; }
+        public Prodotto Prodotto { get; set; }
 
         public DateTime?  DataRifornimento { get; set; }
         public string? NomeFornitore { get; set; }

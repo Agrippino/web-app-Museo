@@ -15,6 +15,7 @@ namespace web_app_Museo.Controllers
             List<Prodotto> listaProdotti = new List<Prodotto>();
             using (MuseoContext db = new MuseoContext())
             {
+                
                 listaProdotti = db.Prodotti.ToList();
             }
 
