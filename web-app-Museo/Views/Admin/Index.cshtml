@@ -31,7 +31,6 @@
                 <thead>
                 <tr>
                 <th scope="col">Immagine</th>
-                <th scope="col">Codice</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Prezzo Cliente</th>
                 <th scope="col">Quantità</th>
@@ -48,9 +47,6 @@
                         <th scope="row">
                             <img style="max-height: 3em; width: auto;" src="@item.Immagine">
                         </th>
-                        <td>
-                            Codice
-                        </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Nome)
                         </td>
@@ -76,14 +72,31 @@
                             </td>  
                           }
                         
-                        <td>
-                            <a asp-action="Rifornimento" asp-route-id="@item.Id">Rifornimento</a> |
-                            <a asp-action="Modifica" asp-route-id="@item.Id">Modifica</a>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BottoneElimina">
-                              Elimina
-                            </button>
+                          <td>
+                          <ul class="wrapper">
+                                    <a asp-action="Rifornimento" asp-route-id="@item.Id">
+                                      <li class="icon facebook ">
+                                        <span class="tooltip">Rifornimento</span>
+                                        <span><img src="/img/bag-plus.svg" width="26" height="29"/></span>
+                                      </li>
+                                     </a>
+                                     <a asp-action="Modifica" asp-route-id="@item.Id">
+                                      <li class="icon facebook" >
+                                        <span class="tooltip">Modifica</span>
+                                        <span > <img src="/img/pencil-square.svg" width="20" height="20"/></span>
+                                      </li>
+                                      </a>
+                                      <li class="icon facebook" data-bs-toggle="modal" data-bs-target="#BottoneElimina">
+                                        <span class="tooltip">Elimina</span>
+                                        <span > <img src="/img/trash3-fill.svg" width="20" height="20"/></span>
+                                      </li>
+                         </ul>
+                         </td>
 
-                        </td>
+                        <td>
+                            
+
+                        
             
                     </tr>
 
