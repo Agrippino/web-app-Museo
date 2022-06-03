@@ -9,10 +9,12 @@ namespace web_app_Museo.Data
         public DbSet<Acquisto> Acquisti { get; set; }
         public DbSet<Categoria> Categorie { get; set; }
         public DbSet<Rifornimento> Rifornimenti { get; set; }
+        public DbSet<Like> Likes { get; set; }
         public DbSet<QuantitaAggiunta> QuantitaAggiunte { get; set; }
         public DbSet<QuantitaAcquistata> QuantitaAcquistate { get; set; }
         public DbSet<QuantitaDisponibile> QuantitaDisponibili { get; set; }
         public DbSet<ClassificaProdotto> ClassificaProdotti { get; set; }
+        public DbSet<ConteggioLike> ConteggioLikes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -45,6 +47,12 @@ namespace web_app_Museo.Data
             .Entity<Prodotto>()
             .Property(b => b.QuantitaDisponibile)
             .HasDefaultValue(0);
+
+            modelBuilder
+            .Entity<ConteggioLike>()
+            .ToView(nameof(ConteggioLikes))
+            .HasKey(t => t.Id);
+
         }
     }
 }

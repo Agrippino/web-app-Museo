@@ -25,8 +25,7 @@ namespace web_app_Museo.Models
         [Required(ErrorMessage = "Per favore inserisci la quantità disponibile del prodotto, questo campo è obbligatorio")]
         [Range(0, 1000, ErrorMessage = "Mi dispiace hai inserito una quantità non valida, il minimo è 1 mentre il massimo è 10000")]
         public int QuantitaDisponibile { get; set; }
-        
-        public int like { get; set; }
+
 
         public Prodotto()
         {
@@ -38,6 +37,7 @@ namespace web_app_Museo.Models
         public Categoria? Categorie { get; set; }
         public List<Acquisto>? Acquisti { get; set; }
         public List<Rifornimento>? Rifornimenti { get; set; }
+        public List<Like>? Likes { get; set; }
 
         public Prodotto(string immagine,string nome, string descrizione, double prezzo)
         {

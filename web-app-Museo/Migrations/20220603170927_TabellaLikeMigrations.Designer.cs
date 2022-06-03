@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using web_app_Museo.Data;
 
@@ -11,9 +12,10 @@ using web_app_Museo.Data;
 namespace web_app_Museo.Migrations
 {
     [DbContext(typeof(MuseoContext))]
-    partial class MuseoContextModelSnapshot : ModelSnapshot
+    [Migration("20220603170927_TabellaLikeMigrations")]
+    partial class TabellaLikeMigrations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,27 +86,6 @@ namespace web_app_Museo.Migrations
                     b.ToView("ClassificaProdotti");
                 });
 
-            modelBuilder.Entity("web_app_Museo.Models.Like", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("LikeInseriti")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProdottoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProdottoId");
-
-                    b.ToTable("Likes");
-                });
-
             modelBuilder.Entity("web_app_Museo.Models.Prodotto", b =>
                 {
                     b.Property<int>("Id")
@@ -137,6 +118,9 @@ namespace web_app_Museo.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasDefaultValue(0);
+
+                    b.Property<int>("like")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -248,17 +232,6 @@ namespace web_app_Museo.Migrations
                     b.Navigation("Prodotti");
                 });
 
-            modelBuilder.Entity("web_app_Museo.Models.Like", b =>
-                {
-                    b.HasOne("web_app_Museo.Models.Prodotto", "Prodotto")
-                        .WithMany("Likes")
-                        .HasForeignKey("ProdottoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Prodotto");
-                });
-
             modelBuilder.Entity("web_app_Museo.Models.Prodotto", b =>
                 {
                     b.HasOne("web_app_Museo.Models.Categoria", "Categorie")
@@ -287,8 +260,6 @@ namespace web_app_Museo.Migrations
             modelBuilder.Entity("web_app_Museo.Models.Prodotto", b =>
                 {
                     b.Navigation("Acquisti");
-
-                    b.Navigation("Likes");
 
                     b.Navigation("Rifornimenti");
                 });
