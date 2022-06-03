@@ -12,7 +12,7 @@ namespace web_app_Museo.Controllers.API
     {
         [HttpGet]
         public IActionResult Get(string? cerca)
-        {
+      {
             //List<Prodotto> listaProdotti = new List<Prodotto>();
             using (MuseoContext db = new MuseoContext())
             {

@@ -231,12 +231,7 @@ namespace web_app_Museo.Controllers
         {
             if (!ModelState.IsValid)
             {
-                using (MuseoContext db = new MuseoContext())
-                {
-                    List<Rifornimento> rifornimenti= db.Rifornimenti.ToList();
-                    model.Rifornimenti = rifornimenti;
 
-                }
                 return View("Rifornimento", model);
             }
             Prodotto ProdottoDaRifornire = null;
