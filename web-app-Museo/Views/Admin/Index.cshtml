@@ -1,8 +1,12 @@
 ﻿
-@model IEnumerable<web_app_Museo.Models.Prodotto>
+@model List<QuantitaDisponibile>
 
 @{
     ViewData["Title"] = "Index";
+}
+
+@{
+    Layout = "_LayoutAdmin";
 }
 
 <h1>Lista Prodotti</h1>
@@ -11,38 +15,53 @@
     <a asp-action="Crea">Crea un nuovo prodotto</a>
 </p>
 
-<table class="table">
+
+<table class="table table-hover">
     <thead>
-        <tr>
-            <th>
-                Nome
-            </th>
-            <th>
-                Descrizione
-            </th>
-            <th>
-                Quantità
-            </th>
-            <th>
-                Prezzo
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+    <th scope="col">Immagine</th>
+    <th scope="col">Codice</th>
+    <th scope="col">Nome</th>
+    <th scope="col">Prezzo Cliente</th>
+    <th scope="col">Quantità</th>
+    <th scope="col">CRUD</th>
+    </tr>
     </thead>
+
     <tbody>
+
 @foreach (var item in Model) {
-        <tr>
+    
+            @if (item.QuantitaTotale <= 0)
+              {
+                <text><tr class="table-danger"></text> 
+                    
+              }
+            else if (item.QuantitaTotale > 0 && item.QuantitaTotale <= 10)
+              {
+                <text><tr class="table-warning"></text> 
+                  
+              }
+            else
+              {
+                <text><tr></text>
+              } 
+    
+        
+            <th scope="row">
+                @Html.DisplayFor(modelItem => item.Immagine)
+            </th>
+            <td>
+                Codice
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Descrizione)
+                Prezzo
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.QuantitaDisponibile)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prezzo)
+                @Html.DisplayFor(modelItem => item.QuantitaTotale)
             </td>
             <td>
                 <a asp-action="Rifornimento" asp-route-id="@item.Id">Rifornimento</a> |
@@ -52,7 +71,8 @@
                 </button>
 
             </td>
-        </tr>
+            
+        @Html.Raw("</tr>")
 
 
 
@@ -81,6 +101,28 @@
           </div>
         </div>
         </form>
-}
+} 
+
     </tbody>
 </table>
+
+
+
+
+<nav aria-label="Standard pagination example">
+    <ul class="pagination">
+    <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        </a>
+    </li>
+    </ul>
+</nav>
