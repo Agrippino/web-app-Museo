@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using web_app_Museo.Data;
 
@@ -11,9 +12,10 @@ using web_app_Museo.Data;
 namespace web_app_Museo.Migrations
 {
     [DbContext(typeof(MuseoContext))]
-    partial class MuseoContextModelSnapshot : ModelSnapshot
+    [Migration("20220601225303_QuantitaDisponibileMigration2")]
+    partial class QuantitaDisponibileMigration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,7 @@ namespace web_app_Museo.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProdottoId")
+                    b.Property<int?>("ProdottoId")
                         .HasColumnType("int");
 
                     b.Property<int>("QuantitaDaAcquistare")
@@ -163,14 +165,6 @@ namespace web_app_Museo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Categoria")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Immagine")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -197,7 +191,7 @@ namespace web_app_Museo.Migrations
                     b.Property<string>("NomeFornitore")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProdottoId")
+                    b.Property<int?>("ProdottoId")
                         .HasColumnType("int");
 
                     b.Property<int>("QuantitaDaAggiungere")
@@ -214,9 +208,7 @@ namespace web_app_Museo.Migrations
                 {
                     b.HasOne("web_app_Museo.Models.Prodotto", "Prodotti")
                         .WithMany("Acquisti")
-                        .HasForeignKey("ProdottoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProdottoId");
 
                     b.Navigation("Prodotti");
                 });
@@ -234,9 +226,7 @@ namespace web_app_Museo.Migrations
                 {
                     b.HasOne("web_app_Museo.Models.Prodotto", "Prodotto")
                         .WithMany("Rifornimenti")
-                        .HasForeignKey("ProdottoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProdottoId");
 
                     b.Navigation("Prodotto");
                 });

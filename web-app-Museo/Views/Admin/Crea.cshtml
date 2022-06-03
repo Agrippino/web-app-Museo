@@ -12,23 +12,23 @@
                 @Html.AntiForgeryToken()
                 <div class="form-group col-md-6 col-12">
                     <label asp-for="Prodotti.Immagine" class="control-label"></label>
-                    <input asp-for="Prodotti.Immagine" class="form-control" />
+                    <input asp-for="Prodotti.Immagine" class="form-control" id="FormModifica" />
                     <span asp-validation-for="Prodotti.Immagine" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-6 col-12">
-                    <label asp-for="Prodotti.Nome" class="control-label"></label>
-                    <input asp-for="Prodotti.Nome" class="form-control" />
+                <div class="form-group col-md-6 col-12 ">
+                    <label asp-for="Prodotti.Nome" class="control-label" ></label>
+                    <input asp-for="Prodotti.Nome" class="form-control" id="FormModifica" />
                     <span asp-validation-for="Prodotti.Nome" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-6 col-12">
                     <label asp-for="Prodotti.Descrizione" class="control-label"></label>
-                    <input asp-for="Prodotti.Descrizione" class="form-control" />
+                    <input asp-for="Prodotti.Descrizione" class="form-control" id="FormModifica" />
                     <span asp-validation-for="Prodotti.Descrizione" class="text-danger"></span>
                 </div>
                 
                 <div class="form-group col-md-6 col-12">
                     <label asp-for="Prodotti.Prezzo" class="control-label"></label>
-                    <input asp-for="Prodotti.Prezzo" class="form-control" />
+                    <input asp-for="Prodotti.Prezzo" class="form-control" id="FormModifica"/>
                     <span asp-validation-for="Prodotti.Prezzo" class="text-danger"></span>
                 </div>
                     <div class="col-md-6 col-12">

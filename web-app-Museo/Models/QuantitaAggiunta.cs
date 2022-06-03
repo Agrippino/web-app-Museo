@@ -3,6 +3,7 @@
     public class QuantitaAggiunta
     {
         public int Id { get; set; }
+        public string Nome { get; set; }
         public int QuantitaTotale { get; set; }
     }
 }
