@@ -26,7 +26,7 @@ namespace web_app_Museo.Models
         [Range(0, 1000, ErrorMessage = "Mi dispiace hai inserito una quantità non valida, il minimo è 1 mentre il massimo è 10000")]
         public int QuantitaDisponibile { get; set; }
         
-        public int like { get; set; }
+        public int? like { get; set; }
 
         public Prodotto()
         {
