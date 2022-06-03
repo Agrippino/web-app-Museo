@@ -19,7 +19,6 @@
        <span class="navbar-toggler-icon"></span>
       </button>
 <!--modal trigger login/registrazione-->
-     <a class="nav-link active text-dark align-text-center" aria-current="page" href="#" data-bs-toggle="modal"  data-bs-target="#exampleModal" > Registrati <img src="~/img/navlogo.png" alt="" width="45" height="37" class="d-inline-block align-text-center"></a>
   </div>
  </nav>
 </header>
@@ -28,17 +27,7 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="sfondoGiallo footer text-muted">
-        <div class="row">
-            
-        </div>
-    </footer>
-     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -50,23 +39,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-
-<!-- Modal login -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sezione login</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Non sei registrato? Iscriviti!
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Registrati</button>
-        <button type="button" class="btn btn-primary">Entra</button>
-      </div>
-    </div>
-  </div>
-</div>
 
