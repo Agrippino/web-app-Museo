@@ -47,6 +47,21 @@
                             <p class="text my-2">${result.data.descrizione}</p>
                              <p class="text"> Costo: </p>
                             <p class="text my-2">${result.data.prezzo} €</p>
+
+
+                            <form onsubmit="Acquisto(event)"  method="post">
+                                <div class="form-group col-md-6 col-12">
+                                            <label>Quantita da acquistare</label>
+                                            <input type="text" class="d-block w-100" id="Quantita" placeholder="Inserisci un numero">
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group col-12 text-center">
+                                        <button type="submit" class="btn btn-primary btn-block mb-4">Invia acquisto</button>
+                                   </div>
+                                </div>
+                            </form>
+
+
                             </div>
                              </div>
                             </div>
@@ -56,6 +71,35 @@
                 console.log("C'è stato un errore: " + error);
             });
         }
+
+
+                //Funzione per il form
+            function Acquisto(event)
+            {
+                    event.preventDefault();
+                            var url = window.location.pathname;
+                            var idBox = url.substring(url.lastIndexOf('/') + 1);
+                            var formatoData = moment().format();
+                            var quantita = document.getElementById('Quantita').value; 
+                            var id = idBox;
+                                var acquistoUtente = {
+                                  Data: formatoData,
+                                  QuantitaDaAcquistare: quantita,
+                                  ProdottoId: id,
+                                  Prodotti: null
+                              }
+                axios.post('/api/AcquistoUtente/post',  acquistoUtente
+                ).then((result) => {
+                          
+                    alert("Complimenti hai acquistato il prodotto");
+                }).catch((error) => {
+                    console.log("C'è stato un errore: " + error);
+                    console.log(acquistoUtente)
+                });
+            }
+           
+
+
     </script>
 
 }
