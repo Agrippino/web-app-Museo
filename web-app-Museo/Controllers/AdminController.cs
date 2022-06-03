@@ -12,11 +12,11 @@ namespace web_app_Museo.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<Prodotto> listaProdotti = new List<Prodotto>();
+            List<QuantitaDisponibile> listaProdotti = new List<QuantitaDisponibile>();
             using (MuseoContext db = new MuseoContext())
             {
                 
-                listaProdotti = db.Prodotti.ToList();
+                listaProdotti = db.QuantitaDisponibili.ToList();
             }
 
 
