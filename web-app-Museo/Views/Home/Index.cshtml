@@ -13,12 +13,14 @@
     <div class="container-fluid justify-content-center p-3 text-center">
        <h2>WHAT'S ON </h2>
     </div>
+ <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" width="100%" class="m-3" >
         @foreach(ClassificaProdotto categoria in Model) {
-           <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" width="100%" class="m-3" >
+          
                     <img class="img " src="@categoria.Immagine" alt="">
                     <h5 class="text">@categoria.Nome</h5> 
-            </marquee>
+           
             }
+</marquee>
 </section>
 
 <div class="">

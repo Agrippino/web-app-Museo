@@ -43,7 +43,6 @@ body {
 
 
 marquee {
-    display: inline;
     height: 300px;
     width: 100%;
     max-width: 100%;
