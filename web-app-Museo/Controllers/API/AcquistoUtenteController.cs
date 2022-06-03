@@ -24,33 +24,17 @@ namespace web_app_Museo.Controllers.API
         public IActionResult post([FromBody] Acquisto model)
         {
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
+                return UnprocessableEntity(ModelState);
+            }
 
-                using (MuseoContext db = new MuseoContext())
-                {
-
-                List<Prodotto> item = db.Prodotti.Where(item => item.Id == model.ProdottoId).ToList<Prodotto>();
-                    if (item.Count == 1)
-                    {
-                        model.Prodotti = item[0];
-                        model.Data = DateTime.Now;
-                    }
-
-                    if (model.Prodotti != null)
-                    {
-                        db.Add(model);
-                        db.SaveChanges();
-                    }
-                }
-
-                return Ok("Message received");
-            }       
-            else
+            using (MuseoContext db = new MuseoContext())
             {
-                return BadRequest("Model not correct");
+                db.Acquisti.Add(model);
+                db.SaveChanges();
+                return Ok();
             }
         }
-
     }
 }
