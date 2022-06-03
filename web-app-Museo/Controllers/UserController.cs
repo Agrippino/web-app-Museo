@@ -7,7 +7,7 @@ namespace web_app_Museo.Controllers
     public class UserController : Controller
     {
         public IActionResult Index()
-        {
+        {   
             return View();
         }
 
@@ -68,7 +68,6 @@ namespace web_app_Museo.Controllers
         {
             using (MuseoContext db = new MuseoContext())
             {
-
                 var quantita = db.QuantitaAggiunte.ToList();
                 return View(quantita);
             }

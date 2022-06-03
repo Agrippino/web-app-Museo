@@ -1,7 +1,10 @@
-﻿@model List<QuantitaAggiunta>
+﻿@model List<ClassificaProdotto>
 
-    @foreach(QuantitaAggiunta categoria in Model)
+    @foreach(ClassificaProdotto categoria in Model)
                         {
-                           <h1>@categoria.QuantitaTotale</h1>
-                           <h1>@categoria.Nome</h1> 
+                           <h1>@categoria.ProdottiVenduti</h1> 
+                           <marquee behavior="scroll" scrollamount="3" direction="left" width="350">
+                                <img class="oggetto" src="@categoria.Immagine" alt="">
+                                <h5 class="text">@categoria.Nome</h5> 
+                         </marquee>
                         }
