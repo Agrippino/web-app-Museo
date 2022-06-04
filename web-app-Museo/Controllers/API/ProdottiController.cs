@@ -16,14 +16,13 @@ namespace web_app_Museo.Controllers.API
             //List<Prodotto> listaProdotti = new List<Prodotto>();
             using (MuseoContext db = new MuseoContext())
             {
-                var listaProdotti = db.Prodotti.Include("Categorie").ToList();
+                var listaProdotti = db.ConteggioLikes.ToList();
                 // LOGICA PER RICERCARE I POST CHE CONTENGONO NEL TIUOLO O NELLA DESCRIZIONE LA STRINGA DI RICERCA
                 if (cerca != null && cerca != "")
                 {
-                    listaProdotti = db.Prodotti
+                    listaProdotti = db.ConteggioLikes
                         .Where(p => p.Nome
                         .Contains(cerca))
-                        .Include("Categorie")
                         .ToList();
                 }
                 return Ok(listaProdotti);
@@ -52,13 +51,13 @@ namespace web_app_Museo.Controllers.API
         [HttpPost]
         public IActionResult Like([FromBody] Like model)
         {
-            Like modello = null;
+            Prodotto modello = null;
 
             using (MuseoContext db = new MuseoContext())
             {
 
-                modello = db.Likes
-                    .Where(n => n.ProdottoId == model.ProdottoId)
+                modello = db.Prodotti
+                    .Where(n => n.Id == model.ProdottoId)
                     .FirstOrDefault();
                 if (modello == null)
                 {
@@ -68,7 +67,7 @@ namespace web_app_Museo.Controllers.API
                 {
                 
                     model.LikeInseriti = 1;
-                    model.ProdottoId = modello.ProdottoId;
+                    model.ProdottoId = modello.Id;
                     db.Add(model);
                     db.SaveChanges();
                     return Ok();
