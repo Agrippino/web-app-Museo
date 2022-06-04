@@ -40,6 +40,11 @@ body {
     height: 100%;
     width: 100%;
 }
+.sfondoRosaBottone {
+    background-color: rgba(204,166,154,255);
+    background-size: cover;
+}
+
 
 
 marquee {
@@ -62,6 +67,13 @@ img + img {
     font-family: 'Raleway', sans-serif;
     font-size: 72px;
     font-weight: 600;
+    text-transform: uppercase;
+}
+.Sottotitolo {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
     text-transform: uppercase;
 }
 a {

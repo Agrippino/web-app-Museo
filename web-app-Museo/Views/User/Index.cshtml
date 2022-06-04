@@ -138,25 +138,6 @@
                 }).catch((error) => {
                     console.log("C'è stato un errore: " + error);
                 });
-            }
-    
-    
+            }   
     </script>
-
-     function aggiungiVideogiocoFav(idDaPrendere) {
-            axios.post('/api/VideogiochiMiPiace/Post', {
-                Id: idDaPrendere
-            }).then(result => {
-                console.log("Entrato nel post");
-                document.getElementById("Piace" + idDaPrendere).classList.add("d-none");
-                document.getElementById("NonPiace" + idDaPrendere).classList.remove("d-none");
-            }).catch(error => {
-                console.log("C'è stato un errore: " + error);
-            })
-        }
-
-
-
-
-
 }
