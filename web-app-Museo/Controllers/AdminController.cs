@@ -210,15 +210,17 @@ namespace web_app_Museo.Controllers
 
         //GET RIFORNIMENTO utilizzando un modello dinamico, in modo da ricevere sia il modello prodotto che la tabella view di entity framework con la quanità totale
         [HttpGet]
-        public IActionResult Rifornimento()
+        public IActionResult Rifornimento(int id)
         {
             using (MuseoContext db = new MuseoContext())
             {
-                var quantitaDisponibili = db.QuantitaDisponibili.ToList();
-                var prodotti = db.Prodotti.ToList();
+                var quantitaDisponibili = db.QuantitaDisponibili.Where(prodotto => prodotto.Id == id).FirstOrDefault();
+                var prodotti = db.Prodotti.Where(prodotto => prodotto.Id == id).FirstOrDefault();
+                var rifornimenti = db.Rifornimenti.Where(prodotto => prodotto.ProdottoId == id).ToList();
                 dynamic myDynamicmodel = new System.Dynamic.ExpandoObject();
                 myDynamicmodel.QuantitaDisponibili = quantitaDisponibili;
                 myDynamicmodel.Prodotti = prodotti;
+                myDynamicmodel.Rifornimenti = rifornimenti;
                 return View(myDynamicmodel);
             }
 
@@ -227,34 +229,28 @@ namespace web_app_Museo.Controllers
 
 
         [HttpPost]
-        public IActionResult Rifornimento(int id, ProdottiRifornimenti model)
+        public IActionResult Rifornimento(int id, int quantitaDaAggiungere, string nomeFornitore)
         {
+            /*
             if (!ModelState.IsValid)
             {
-
                 return View("Rifornimento", model);
             }
-            Prodotto ProdottoDaRifornire = null;
+            */
+            Rifornimento nuovoRifornimento = new Rifornimento();
             using (MuseoContext db = new MuseoContext())
             {
-                ProdottoDaRifornire = db.Prodotti
-                    .Where(Prodotto => Prodotto.Id == id)
-                    .FirstOrDefault();
+                nuovoRifornimento.QuantitaDaAggiungere = quantitaDaAggiungere;
+                nuovoRifornimento.NomeFornitore = nomeFornitore;
+                nuovoRifornimento.ProdottoId = id;
 
+                db.Rifornimenti.Add(nuovoRifornimento);
+                db.SaveChanges();
 
                 
-                if (ProdottoDaRifornire != null)
-                {
 
-                    
-                    db.SaveChanges();
-
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    return NotFound();
-                }
+                return RedirectToAction("Index");
+              
             }
 
         }
