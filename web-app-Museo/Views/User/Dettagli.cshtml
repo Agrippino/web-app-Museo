@@ -1,15 +1,7 @@
-﻿<div class="sfondoBlu">
-<div class="container sfondoBlu">
-    <div class="row">
-    <div id="prodotto-div" class="row js_prodotto_cards">
-        
+﻿<div class="sfondoRosa">  
+    <div id="prodotto-div" class="js_prodotto_cards">
         <!--Form per acquistare-->
-        <div>
-       </div>
      </div>
-    </div>
-
-    </div>
 </div>
 
 
@@ -29,43 +21,35 @@
                 console.log("Ho ricevuto il prodotto da visualizzare");
                        document.getElementById('prodotto-div').innerHTML += 
                             `
-                            <div class="container">
+                            <h3 class="title Sottotitolo text-center">${result.data.nome}</h3>
+                           <div class="container-fluid">
                             <div class="row">
-                            <div class="col-md-12 col-4 p-2 text-center">
-                            <div class=" sfondoGiallo bg-opacity-10 border border-info  rounded-start rounded-end">
-                             <h5 class="title mt-2">${result.data.nome}</h5>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="row">
-                            <div class="col-6 mb-2">
-                              <img id="myimage" src="${result.data.immagine}" style=" height: 500px; width: 500px;" Class="border border-2 border-warning rounded" alt="${result.data.descrizione}">
-                            </div>
-                            <div class="col-md-6 col-4 p-2">
-                            <div class="p-3 sfondoGiallo bg-opacity-10 border border-info border-start-0 rounded-start">
-                            <p class="text"> Descrizione: </p>
-                            <p class="text my-2">${result.data.descrizione}</p>
-                             <p class="text"> Costo: </p>
-                            <p class="text my-2">${result.data.prezzo} €</p>
-
-
-                            <form onsubmit="Acquisto(event)"  method="post">
-                                <div class="form-group col-md-6 col-12">
-                                            <label>Quantita da acquistare</label>
-                                            <input type="text" class="d-block w-100" id="Quantita" placeholder="Inserisci un numero">
-                                </div>
-                                <div class="col-md-6 col-12">
-                                    <div class="form-group col-12 text-center">
-                                        <button type="submit" class="btn btn-primary btn-block mb-4">Invia acquisto</button>
-                                   </div>
-                                </div>
-                            </form>
-
-
-                            </div>
+                            <div class="col-md-6 col-12 ">
+                             <img  src="${result.data.immagine}" Class="img-fluid rounded mx-auto d-block" alt="${result.data.descrizione}">
                              </div>
-                            </div>
-                           </div>                          
+                            <div class="col-md-6 col-12 ">
+                             <p class="text"> <b> Costo: </b></p>
+                             <p class="text ">${result.data.prezzo} €</p>
+                             <p class="text"><b>  Descrizione: </b></p>
+                            <p class="text ">${result.data.descrizione}</p>
+                            
+                            
+                            <form onsubmit="Acquisto(event)"  method="post">
+                            <div class="row">
+                                            <label><b>Quantità da acquistare</b></label>
+                                            <div class="col-md-6 col-12">
+                                            <input type="text" class="d-block w-100 mt-1" id="Quantita" placeholder="Inserisci un numero">
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                        <button type="submit" class="btn sfondoRosaBottone btn-block mb-5 shadow-lg">Invia acquisto</button>
+                               </div>
+                                        </div>
+                            </form>
+                           
+                           
+                           
+                           </div>     
+                           </div>
                             `
              }).catch((error) => {
                 console.log("C'è stato un errore: " + error);
