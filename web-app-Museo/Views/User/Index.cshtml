@@ -83,26 +83,26 @@
                     document.getElementById('js_prodotti_vuoto').classList.add('d-none');
                     document.getElementById('js_prodotti_div').classList.remove('d-none');
 
-                    result.data.forEach(prodotto => {
+                    result.data.forEach(conteggioLikes => {
                        
                         document.getElementById('js_prodotti_div').innerHTML +=
                         `
                             <div class="col">
                                 <div class="card h-100 bg-transparent border-0">
                                   <container class="bg-warning">  
-                                    <img src="${prodotto.immagine}" height="600" width="400" class="card-img-top mx-auto d-block p-5" alt="${prodotto.nome}">
+                                    <img src="${conteggioLikes.immagine}" height="600" width="400" class="card-img-top mx-auto d-block p-5" alt="${conteggioLikes.nome}">
                                   </container> 
                                   <div class="card-body ">
-                                    <h6 class="card-title">${prodotto.categorie.nome}</h6>
-                                    <h5 class="card-title fw-bold">${prodotto.nome}</h5>
+                                    <h6 class="card-title">${conteggioLikes.likeTotali}</h6>
+                                    <h5 class="card-title fw-bold">${conteggioLikes.nome}</h5>
                                     <ul class="wrapper">
-                                    <a onclick="Like(${prodotto.id})" >
+                                    <a onclick="Like(${conteggioLikes.id})" >
                                       <li class="icon facebook ">
                                         <span class="tooltip">LIKE</span>
                                         <span><img src="/img/cuore.png" width="26" height="29"/></span>
                                       </li>
                                      </a>
-                                     <a href="Dettagli/${prodotto.id}" >
+                                     <a href="Dettagli/${conteggioLikes.id}" >
                                       <li class="icon facebook" >
                                         <span class="tooltip">SHOP</span>
                                         <span > <img src="/img/carrello.png" width="20" height="20"/></span>
@@ -140,4 +140,10 @@
                 });
             }   
     </script>
+
+
+
+
+
+
 }

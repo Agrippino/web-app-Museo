@@ -4,35 +4,35 @@
     ViewBag.Title = "Rifornimento";
 }
 
-<h1>Stato Magazzino</h1>
-
-
-
-<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-@foreach (var item in Model.QuantitaDisponibili) {
-        
-        
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('@item.Immagine');">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">@item.Nome</h2>
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="d-flex align-items-center me-3">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
-                    <small>@item.Categoria</small>
-                  </li>
-                  <li class="d-flex align-items-center">
-                    <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
-                    <small>@item.QuantitaTotale</small>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-         
-        
+@{
+    Layout = "_LayoutAdmin";
 }
+
+
+<div class="container-fluid sfondoBlu">
+    <h1 class="col-12 text-center titolo p-3">Rifornimento</h1>
+
+               <form method="post" action="@Url.Action("Rifornimento", "Admin")" class="row">
+	            @Html.AntiForgeryToken()	        
+		        <div class="mb-3 col-md-6 col-12">
+		            <label for="input-fornitore">Nome Fornitore:</label>
+		            <input name="nomeFornitore" id="input-fornitore"> 
+	            </div>
+                <div class="mb-3 col-md-6 col-12">
+		            <label for="input-quantita">Quantita da rifornire:</label>
+		            <input type="number" class="d-block w-100" name="quantitaDaAggiungere" id="input-quantita">  
+	            </div>                  
+                <div class="modal-footer col-12 text-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <button type="submit" class="btn btn-primary btn-info">Conferma rifornimento</button>
+                </div>
+	           </form> 
 </div>
+
+
+@foreach(var rifornimento in Model.Rifornimenti){
+    <h1>@rifornimento.DataRifornimento</h1>
+}
 
 <!--
 <div class="container">
@@ -55,3 +55,5 @@
 	</div>
 </div>
 -->
+
+
