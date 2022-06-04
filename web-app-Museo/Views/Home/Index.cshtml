@@ -1,33 +1,67 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = null;
 }
+
 @model List<ClassificaProdotto>
-
-<div class="sfondoGiallo container-fluid justify-content-center p-3 text-center">
-    <h1 class="titolo">
-	<span>welcome</span> 
-</h1>
-</div> 
-
-<section class= " container-fluid sfondoRosa py-5 ">
-    <div class="container-fluid justify-content-center p-3 text-center">
-       <h2>WHAT'S ON </h2>
-    </div>
- <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" >
-        @foreach(ClassificaProdotto categoria in Model) {
-                    <img class="img " src="@categoria.Immagine" alt="">  
-                    <span>@categoria.Nome</span>           
-            }
-</marquee>
-</section>
-
-    <div class="row sfondoPergamena">
-        <div class="justify-content-center text-center bg-opacity-75 col-md-6 col-12">
-                <img src="~/img/Sfondo-sinistra.jpg" width="100%" height="900" alt="museo" />
- 
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>2019</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper1">
+      <div class="parallax__group">
+        <div class="parallax__layer sky"></div>
+        <div class="parallax__layer bushes"></div>
+        <div class="parallax__layer water"></div>
+        <div class="parallax__layer people2"></div>
+        <div class="parallax__layer hero-text">
+          <h2>Level Up Inc.</h2>
+          <ul>
+            <li><a href="#">Passions</a></li>
+            <li><a href="#">Goals</a></li>
+            <li><a href="#" class="btn">Get Started Now</a></li>
+          </ul>
+          <div class="year-container">
+            <h1>E</h1>
+            <h1>Y</h1>
+            <h1>G</h1>
+            <h1>P</h1>
+            <h1>T</h1>
+          </div>
+          <div class="social-container">
+            <a href="https://github.com/KiaanCastillo" target="_blank"
+              ><i class="icon ion-logo-github"></i
+            ></a>
+            <a href="https://www.instagram.com/craftedbykiaan/" target="_blank"
+              ><i class="icon ion-logo-instagram"></i
+            ></a>
+            <a href="https://dribbble.com/kiaancastillo" target="_blank"
+              ><i class="icon ion-logo-dribbble"></i
+            ></a>
+            <a href="https://www.youtube.com/c/KiaanCastillo" target="_blank"
+              ><i class="icon ion-logo-youtube"></i
+            ></a>
+          </div>
         </div>
-                <div class="container-fluid justify-content-center p-3 text-center bg-opacity-75 col-md-6 col-12">
-                    <h1 class="titolo"><b>NEWS</b></h1>
-
-            </div>
+      </div>
+      <div class="parallax__group info-container">
+        <img src="" alt="Lively and colourful concert" />
+        <div class="text-container">
+          <h2>This is your year.</h2>
+          <p>What would life be if we had no courage to attempt anything?</p>
+          <p>- Vincent Van Gogh</p>
+          <a href="#" class="btn">Get Started Now</a>
+        </div>
+      </div>
     </div>
+  </body>
+</html>
