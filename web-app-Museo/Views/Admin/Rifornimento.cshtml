@@ -15,12 +15,12 @@
                <form method="post" action="@Url.Action("Rifornimento", "Admin")" class="row">
 	            @Html.AntiForgeryToken()	        
 		        <div class="mb-3 col-md-6 col-12">
-		            <label>Nome Fornitore:</label>
-		            <input name="nomeFornitore"> 
+		            <label for="input-fornitore">Nome Fornitore:</label>
+		            <input name="nomeFornitore" id="input-fornitore"> 
 	            </div>
                 <div class="mb-3 col-md-6 col-12">
-		            <label>Quantita da rifornire:</label>
-		            <input type="number" class="d-block w-100" name="quantitaDaAggiungere"> 
+		            <label for="input-quantita">Quantita da rifornire:</label>
+		            <input type="number" class="d-block w-100" name="quantitaDaAggiungere" id="input-quantita">  
 	            </div>                  
                 <div class="modal-footer col-12 text-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
