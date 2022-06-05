@@ -40,11 +40,6 @@ body {
     height: 100%;
     width: 100%;
 }
-.sfondoRosaBottone {
-    background-color: rgba(204,166,154,255);
-    background-size: cover;
-}
-
 
 
 marquee {
@@ -67,13 +62,6 @@ img + img {
     font-family: 'Raleway', sans-serif;
     font-size: 72px;
     font-weight: 600;
-    text-transform: uppercase;
-}
-.Sottotitolo {
-    color: black;
-    font-family: 'Raleway', sans-serif;
-    font-size: 40px;
-    font-weight: 400;
     text-transform: uppercase;
 }
 a {
@@ -244,220 +232,219 @@ input {
 
 
 
-
-
-
-    /*PROVA SITO MINT*/
-@font-face {
-    font-family: "Gilroy-Bold";
-    font-style: normal;
-    font-weight: 700;
-    src: url("https://fonts.animaapp.com/Gilroy-Bold") format("opentype");
+/* 
+========================
+    E MOLTO BRUTTO
+========================
+*/
+.wrapper1 {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 300px;
 }
-
-@font-face {
-    font-family: "Gilroy-ExtraBold";
-    font-style: normal;
-    font-weight: 800;
-    src: url("https://fonts.animaapp.com/Gilroy-ExtraBold") format("opentype");
-}
-
-@font-face {
-    font-family: "Chronicle Display-Semibold";
-    font-style: normal;
-    font-weight: 400;
-    src: url("https://fonts.animaapp.com/ChronicleDisplay-Semibold") format("opentype");
-}
-
-@font-face {
-    font-family: "Gilroy-Medium";
-    font-style: normal;
-    font-weight: 500;
-    src: url("https://fonts.animaapp.com/Gilroy-Medium") format("opentype");
-}
-
-
-@font-face {
-    font-family: "Chronicle Display-Bold";
-    font-style: normal;
-    font-weight: 700;
-    src: url("https://fonts.animaapp.com/ChronicleDisplay-Bold") format("opentype");
-}
-
-
-.mntn {
-    align-items: flex-start;
-    background-color: var(--bg);
-    display: flex;
-    height: 4600px;
-    width: 1920px;
-}
-
-.hidden,
-.hidden * {
-    pointer-events: none;
-    visibility: hidden;
-}
-
-.overlap-group3 {
-    height: 4680px;
-    margin-top: -200px;
+.parallax__group {
     position: relative;
-    width: 1920px;
+    height: 100vh;
+    width: 100vw;
+    transform-style: preserve-3d;
 }
 
-.content-3 {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    height: 3040px;
-    left: 229px;
-    overflow: hidden;
-    position: absolute;
-    top: 1640px;
-    width: 1462px;
-}
-
-
-.content-1 {
-    align-items: flex-start;
-    display: flex;
-    margin-top: 200px;
-    min-width: 1462px;
-}
-
-.x01-3 {
-    height: 728px;
-    margin-left: 114px;
-    object-fit: cover;
-    width: 566px;
-}
-
-.overlap-group {
-    height: 543px;
-    margin-top: 37px;
-    position: relative;
-    width: 782px;
-}
-
-.equipment {
-    left: 0;
-    letter-spacing: 0;
-    line-height: 240px;
-    opacity: 0.1;
+.parallax__layer {
     position: absolute;
     top: 0;
-    white-space: nowrap;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-.content {
-    align-items: flex-start;
+.sky {
+    background: url('../img/MG.png') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-600px) scale(5);
+    z-index: 1;
+}
+
+.bushes {
+    background: url('') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-525px) scale(2.75);
+    z-index: 2;
+}
+
+.water {
+    background: url('') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-400px) scale(2.33333333);
+    z-index: 3;
+}
+
+
+
+.people2 {
+    background: url('../img/VG.png') no-repeat center;
+    background-size: cover;
+    transform: translateZ(-125px) translateY(200px) scale(1.4167);
+    z-index: 5;
+}
+
+
+
+.hero-text {
+    background: linear-gradient( rgba(105, 211, 252, 0.25) 0%, rgba(255, 116, 161, 0.25) 86%, rgba(1, 0, 0, 0.25) 100% );
+    background-size: cover;
+    transform: translateZ(0) scale(1);
+    z-index: 7;
+}
+
+    .hero-text h2 {
+        font-size: 1.25rem;
+        position: absolute;
+        left: 2.5rem;
+        top: 2.5rem;
+    }
+
+    .hero-text ul {
+        font-size: 0.75rem;
+        position: absolute;
+        right: 2.5rem;
+        top: 2.5rem;
+    }
+
+        .hero-text ul li {
+            margin-left: 2.5rem;
+            list-style-type: none;
+            float: left;
+            visibility: hidden;
+        }
+
+            .hero-text ul li:nth-of-type(3) {
+                visibility: visible;
+            }
+
+.year-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 17rem;
+    height: 25rem;
+}
+
+    .year-container h1 {
+        font-family: Bebas, sans-serif;
+        font-weight: 400;
+        position: absolute;
+        font-size: 12.5rem;
+    }
+
+        .year-container h1:nth-of-type(1) {
+            top: 10%;
+        }
+
+        .year-container h1:nth-of-type(2) {
+            left: 30%;
+            bottom: 0;
+        }
+
+        .year-container h1:nth-of-type(3) {
+            top: 0;
+            right: 30%;
+        }
+
+        .year-container h1:nth-of-type(4) {
+            right: 0;
+            bottom: 20%;
+        }
+        .year-container h1:nth-of-type(5) {
+            right: -2%;
+            bottom: 30%;
+        }
+
+.social-container {
+    position: absolute;
+    left: 2.5rem;
+    bottom: 2.5rem;
+}
+
+    .social-container i {
+        font-size: 1.25rem;
+        margin-right: 0.25rem;
+    }
+
+.info-container {
+    background: #000;
+    transform: translateZ(0) scale(1);
+    z-index: 8;
     display: flex;
     flex-direction: column;
-    height: 439px;
-    left: 150px;
-    position: absolute;
-    top: 104px;
-    width: 632px;
-}
-
-
-
-.tagline-2 {
+    justify-content: center;
     align-items: center;
-    display: flex;
-    height: 22px;
-    min-width: 456px;
+    text-align: center;
 }
 
-.line-2 {
-    background-color: var(--accent);
-    height: 2px;
-    margin-top: 0;
-    width: 72px;
+    .info-container img {
+        width: 75%;
+        margin-bottom: 2.5rem;
+        filter: saturate(0.65);
+    }
+
+    .info-container h2,
+    .info-container p {
+        margin-bottom: 1rem;
+    }
+
+.text-container p:nth-of-type(1) {
+    font-weight: 400;
+    font-size: 0.75rem;
+    margin: 1rem 2.5rem;
 }
 
-.where-you-go-is-the-key {
-    letter-spacing: 6px;
-    margin-left: 24px;
-    min-height: 22px;
-    min-width: 358px;
+.text-container p:nth-of-type(2) {
+    font-size: 0.6rem;
+    margin-bottom: 3rem;
 }
 
-.understand-your-map-timing {
-    letter-spacing: 0;
-    margin-top: 26px;
-    min-height: 154px;
-    width: 555px;
+@media (min-width: 760px) {
+    .hero-text ul li {
+        visibility: visible;
+    }
+
+    .info-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 3rem;
+        align-items: center;
+        text-align: left;
+    }
+
+        .info-container img {
+            justify-self: end;
+            width: 75%;
+        }
+
+    .text-container p:nth-of-type(1) {
+        font-size: 1rem;
+        width: 75%;
+        margin: 1rem 0;
+    }
+
+    .text-container p:nth-of-type(1) {
+        font-size: 0.86rem;
+    }
 }
 
-.to-start-print-out {
-    letter-spacing: 0;
-    line-height: 32px;
-    margin-top: 27px;
-    min-height: 160px;
-    width: 632px;
-}
-
-.more {
-    align-items: center;
-    display: flex;
-    height: 22px;
-    margin-top: 28px;
-    min-width: 129px;
-}
-
-.equipment-1 {
-    letter-spacing: 0;
-    min-height: 22px;
-    min-width: 87px;
-}
-
-.iconnavigationarrow_downward_24px {
-    height: 16px;
-    margin-bottom: 0;
-    margin-left: 16px;
-    width: 24px;
-}
-
-.x01-2 {
-    height: 720px;
-    width: 566px;
-}
-
-.overlap-group1 {
-    height: 543px;
-    margin-left: 114px;
-    margin-top: 37px;
-    position: relative;
-    width: 782px;
-}
-
-.picking-the-right-hiking-gear {
-    letter-spacing: 0;
-    margin-top: 26px;
-    min-height: 154px;
-    width: 555px;
-}
-
-.tagline-1 {
-    align-items: center;
-    display: flex;
-    height: 22px;
-    min-width: 356px;
-}
-
-.hiking-essentials {
-    letter-spacing: 6px;
-    margin-left: 24px;
-    min-height: 22px;
-    min-width: 258px;
-}
-
-.line-1 {
-    background-color: var(--accent);
-    height: 2px;
-    margin-top: 0;
+@media (min-width: 1126px) {
+    .sky,
+    .bushes,
+    .water,
+    .people1,
+    .people2,
+    .people3,
+    .hero-text {
+        background-size: contain;
+    }
+}    margin-top: 0;
     width: 72px;
 }
 
