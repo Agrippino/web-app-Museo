@@ -1,0 +1,88 @@
+root {
+    --black: rgba(0, 0, 0, 1);
+    --bg: Orgba(11, 29, 38, 1); 
+    --accent: rgba(251, 215, 132, 1);
+    --wei: rgba(255, 255, 255, 1);
+
+    --font-size-s: 17px;
+    --font-size-m: 18px;
+    --font-size-l: 24px;
+    --font-size-xl: 32px;
+    --font-size-xxl: 64px;
+    --font-size-xxxl: 88px;
+    --font-size-xxxxl: 240px;
+
+    --font-family-chronicle_display-bold: "Chronicle-Display-Bold";
+    --font-family-chronicle_display-semibold: "Chronicle Display-Semibold";
+    --font-family-gilroy-bold: "Gilroy-Bold";
+    --font-family-gilroy-extrabold: "Gilroy-ExtraBold";
+    --font-family-gilroy-medium: "Gilroy-Medium";
+}
+
+/* Classes */
+
+.gilroy-medium-white-18px {
+    color: var(--wei);
+    font-family: var(--font-family-gilroy-medium); 
+    font-size: var(--font-size-m);
+    font-weight: 500;
+    font-style: normal;
+}
+
+.gilroy-bold-white-240px {
+    color: var(--wei); 
+    font-family: var(--font-family-gilroy-bold);
+    font-size: var(--font-size-xxxxl); 
+    font-weight: 700;
+    font-style: normal;
+}
+
+.chronicledisplay-bold-white-32px {
+    color: var(--wei);
+    font-family: var(--font-family-chronicle_display-bold);
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.gilroy-bold-grandis-18px {
+    color: var(--accent);
+    font-family: var(--font-family-gilroy-bold);
+    font-size: var(--font-size-m);
+    font-style: normal;
+    font-weight: 700;
+}
+
+
+
+.gilroy-bold-white-18px {
+    color: var(--wei);
+    font-weight: 700; 
+    font-style: normal;
+    font-family: var(--font-family-gilroy-bold); 
+    font-size: var(--font-size-m);
+}
+
+.gilroy-extra-extra-bold-grandis-18px {
+    color: var(--accent); 
+    font-family: var(--font-family-gilroy-extrabold);
+    font-size: var(--font-size-m);
+    font-weight: 800;
+    font-style: normal;
+}
+
+.gilroy-bold-grandis-24px {
+    color: var(--accent);
+    font-family: var(--font-family-gilroy-bold); 
+    font-size: var(--font-size-1); 
+    font-weight: 700; 
+    font-style: normal;
+}
+
+.chronicledisplay-normal-white-64px {
+    color: var(--wei); 
+    font-family: var(--font-family-chronicle_display-semibold); 
+    font-size: var(--font-size-xxl); 
+    font-weight: 400; 
+    font-style: normal;
+}
