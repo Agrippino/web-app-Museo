@@ -16,41 +16,28 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="wrapper1">
-      <div class="parallax__group">
-        <div class="parallax__layer sky"></div>
-        <div class="parallax__layer people2"></div>
-        <div class="parallax__layer hero-text">
-          <h2>Level Up Inc.</h2>
-          <ul>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Amministrazione</a></li>
-          </ul>
-          <div class="year-container">
-            <h1>E</h1>
-            <h1>Y</h1>
-            <h1>G</h1>
-            <h1>P</h1>
-            <h1>T</h1>
-          </div>
-          <div class="social-container">
-            <a href="#" target="_blank"
-              ><i class="icon ion-logo-github"></i
-            ></a>
-            <a href="#" target="_blank"
-              ><i class="icon ion-logo-instagram"></i
-            ></a>
-            <a href="#" target="_blank"
-              ><i class="icon ion-logo-dribbble"></i
-            ></a>
-            <a href="#" target="_blank"
-              ><i class="icon ion-logo-youtube"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-
-    </div>
+  <body class="sfondo-landing">
+    <section class="effetto-parallax">
+        <img src="~/img/MGeg.png" id="MGeg" class="img-parallax" />
+        <img src="~/img/VGeg.png" id="VGeg" class="img-parallax" />
+        <h2 id="landingtext">EGYPT</h2>
+    </section>
+    <h1>prova</h1>
   </body>
 </html>
+
+
+
+<script type="text/javascript">
+    let mgeg = document.getElementById("MGeg");
+    let vgeg = document.getElementById("VGeg");
+    let text = document.getElementById("landingtext");
+
+    window.addEventListener('scroll', function(){
+        var value = window.scrollY;
+
+        mgeg.style.top = value * 0.5 + 'px';
+        vgeg.style.top = value * 0.2 + 'px';
+        text.style.top = value * 0.6 + 'px';
+    })
+</script>
