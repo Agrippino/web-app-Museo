@@ -41,6 +41,13 @@ body {
     width: 100%;
 }
 
+.sfondoTerra {
+    background-color: rgb(110,59,48);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
 
 marquee {
     height: 300px;
