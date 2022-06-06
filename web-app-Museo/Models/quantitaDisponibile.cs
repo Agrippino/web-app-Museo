@@ -7,5 +7,6 @@
         public string Immagine { get; set; }
         public string Categoria { get; set; }
         public int QuantitaTotale { get; set; }
+        public double Prezzo { get; set; }
     }
 }

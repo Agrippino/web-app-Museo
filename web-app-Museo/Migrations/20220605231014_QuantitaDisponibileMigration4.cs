@@ -4,7 +4,7 @@
 
 namespace web_app_Museo.Migrations
 {
-    public partial class QuantitaDisponibileMigration3 : Migration
+    public partial class QuantitaDisponibileMigration4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
