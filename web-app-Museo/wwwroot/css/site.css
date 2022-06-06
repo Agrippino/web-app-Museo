@@ -41,6 +41,17 @@ body {
     width: 100%;
 }
 
+.sfondoTerra {
+    background-color: rgb(110,59,48);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.sfondoVerdeBottone {
+    background-color: rgba(154,209,139,255);
+    background-size: cover;
+}
 
 marquee {
     height: 300px;
@@ -265,21 +276,6 @@ input {
     z-index: 1;
 }
 
-.bushes {
-    background: url('') no-repeat center;
-    background-size: cover;
-    transform: translateZ(-525px) scale(2.75);
-    z-index: 2;
-}
-
-.water {
-    background: url('') no-repeat center;
-    background-size: cover;
-    transform: translateZ(-400px) scale(3.33333333);
-    z-index: 3;
-}
-
-
 
 .people2 {
     background: url('../img/VGeg.png') no-repeat center;
@@ -495,6 +491,7 @@ input {
     flex-wrap: wrap;
     align-items: flex-end;
     justify-content: space-between;
+
 }
 
     .loader span {
