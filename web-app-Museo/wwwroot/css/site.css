@@ -516,16 +516,4 @@ input {
         animation-delay: .32s;
     }
 
-@keyframes bounce {
-    from {
-        transform: scaleX(1.25);
-    }
 
-    to {
-        transform: translateY(-50px) scaleX(1);
-    }
-}
-.sfondoBluBottone {
-    background-color: rgb(48, 127, 156);
-    background-size: cover;
-}
