@@ -525,3 +525,7 @@ input {
         transform: translateY(-50px) scaleX(1);
     }
 }
+.sfondoBluBottone {
+    background-color: rgb(48, 127, 156);
+    background-size: cover;
+}

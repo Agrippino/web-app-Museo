@@ -1,5 +1,7 @@
 ﻿
-
+@{
+    Layout = "_LayoutCrea";
+}
 @{
     ViewData["Title"] = "Crea Prodotto";
 }
@@ -40,15 +42,13 @@
                             <option value="@categoria.Id">@categoria.Nome</option>
                         }
                     </select>
+                   <br>
                    </div>
-                <div class="form-group col-12 text-center">
-                    <input type="submit" value="Crea" class="btn btn-warning m-4 " />
+              <div class="modal-footer col-12 text-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <button type="submit" class="btn sfondoBluBottone shadow-lg">Crea</button>
                 </div>
             </form>
-
-        <div class="col-12 text-center">
-           <button class="btn btn-warning m-4 "><a asp-action="Index">Torna alla lista</a></button>
-        </div>
     </div>
 </div>
 
