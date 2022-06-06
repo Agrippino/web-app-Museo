@@ -8,25 +8,31 @@
     <link rel="stylesheet"  href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
  </head>
-<body class="sfondoGiallo">
+<body class="sfondoBlu">
 <!--Navbar-->
 <header>
-<nav class="navbar navbar-expand-lg sfondoGiallo">
+<nav class="navbar navbar-expand-lg sfondoBlu">
    <div class="container-fluid">
-       <a class="navbar-brand text-dark"  asp-controller="Home" asp-action="Index">
-                <img src="~/img/navlogo.png" alt="" width="45" height="37" class="d-inline-block align-text-center">Mummia Museum
-       </a>
-    <a class="navbar-brand text-dark"asp-area="" asp-controller="User" asp-action="Index">
-         <img src="~/img/navlogo-specchio.png" alt="" width="45" height="37" class="d-inline-block align-text-center">Shop</a>
+       <div class="box-1">
+          <div class="btn btn-one">
+               <a class="navbar-brand text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/img/navlogo.png" alt="" width="45" height="37" class="d-inline-block align-text-center">Mummia Museum</a>
+          </div>
+        </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+      </button>
+    <a class="navbar-brand text-dark"asp-area="" asp-controller="User" asp-action="Index">Shop</a>
   </div>
  </nav>
+ <!--Fine Navbar-->
 </header>
     <div>
         <main role="main" >
             @RenderBody()
         </main>
     </div>
-    <footer class="sfondoGiallo footer text-muted container-fluid ">
+    <footer class="sfondoBlu footer text-muted container-fluid ">
         <div class="row">
             <div class=" container-fluid justify-content-center p-3 text-center bg-opacity-75 col-12 mt-5">
                     <h2><b>Contatti and Location</b></h2>
@@ -69,22 +75,4 @@
 </body>
 </html>
 
-<!-- Modal login messo in disparte, potrebbe servire in futuro
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sezione login</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Non sei registrato? Iscriviti!
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Registrati</button>
-        <button type="button" class="btn btn-primary">Entra</button>
-      </div>
-    </div>
-  </div>
-</div> -->
 

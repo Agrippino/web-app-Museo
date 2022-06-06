@@ -8,7 +8,7 @@ namespace web_app_Museo.Controllers
     {
         public IActionResult Index()
         {   
-            return View();
+            return View("Index");
         }
 
         [HttpGet]

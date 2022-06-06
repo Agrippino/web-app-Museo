@@ -1,13 +1,18 @@
-﻿@{
+﻿
+@{
+    Layout = "_LayoutUserProdotti";
+}
+
+@{
     ViewData["Title"] = "Home Page";
 }
-<div class="sfondoGiallo container-fluid justify-content-center p-3 text-center">
+<div class="sfondoRosa container-fluid justify-content-center p-3 text-center">
     <h1 class="titolo">
 	<span>SHOP</span> 
 </h1>
 </div>
 
-<section class="sfondoRosa py-5 ">
+<section class="sfondoRosa py-5">
     <div class="container-fluid justify-content-center px-5 text-center">
        <h2>WHAT'S ON </h2>
 
@@ -24,10 +29,9 @@
         <div  class="container" >
 
             <!-- codice da inserire in js -->
-           <div id="js_prodotti_div" class="row row-cols-1 row-cols-md-2 g-5 mx-5 ">
+           <div id="js_prodotti_div" class="row row-cols-1 row-cols-md-2 g-5 mx-5">
           
            </div>
-
            <div id="js_prodotti_attendi">
                 <div class="loader">
                 <div class="ball"></div>
@@ -35,7 +39,7 @@
                 <div class="ball"></div>
                 <span>Loading...</span>
               </div>
-           </div>
+          </div>
 
            <div id="js_prodotti_vuoto" class="d-none">
                 <div class="loader">
@@ -45,7 +49,6 @@
                 <span>Loading...</span>
               </div>
            </div>
-
         </div>
     <!-- codice da inserire in js -->
     </div>
@@ -96,16 +99,18 @@
                                     <img src="${conteggioLikes.immagine}" height="600" width="400" class="card-img-top mx-auto d-block p-5" alt="${conteggioLikes.nome}">
                                   </container> 
                                   <div class="card-body ">
-                                    <h6 class="card-title">${conteggioLikes.likeTotali}</h6>
+
+                                    <input class="text-center text-black" id="${conteggioLikes.id}" type=text readonly="readonly" value="${conteggioLikes.likeTotali}"></input>
+
                                     <h5 class="card-title fw-bold">${conteggioLikes.nome}</h5>
                                     <ul class="wrapper">
-                                    <a onclick="Like(${conteggioLikes.id})" >
+                                    <a onclick="Like(${conteggioLikes.id}); buttonClick(${conteggioLikes.id}, ${conteggioLikes.likeTotali})">
                                       <li class="icon facebook ">
                                         <span class="tooltip">LIKE</span>
                                         <span><img src="/img/cuore.png" width="26" height="29"/></span>
                                       </li>
                                      </a>
-                                     <a href="Dettagli/${conteggioLikes.id}" >
+                                     <a href="User/Dettagli/${conteggioLikes.id}" >
                                       <li class="icon facebook" >
                                         <span class="tooltip">SHOP</span>
                                         <span > <img src="/img/carrello.png" width="20" height="20"/></span>
@@ -144,7 +149,13 @@
             }   
     </script>
 
-
+    <script>
+    function buttonClick(prodottoId, conteggio) {
+        nuovoConteggio = document.getElementById(prodottoId).value;
+        console.log(nuovoConteggio);
+        document.getElementById(prodottoId).value = ++nuovoConteggio;
+    }
+</script>
 
 
 
