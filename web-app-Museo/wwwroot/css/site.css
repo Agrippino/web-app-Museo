@@ -186,7 +186,7 @@ input {
       BUTTON ONE
 ========================
 */
-.btn-one {
+/*.btn-one {
     color: #FFF;
     transition: all 0.3s;
     position: relative;
@@ -239,7 +239,7 @@ input {
         opacity: 0;
         transform: scale(0.1, 1);
     }
-
+*/
 
 
 
