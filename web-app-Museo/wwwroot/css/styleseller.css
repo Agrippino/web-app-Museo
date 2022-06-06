@@ -19,7 +19,7 @@ a {
     text-decoration: none !important; }
 
 .content {
-    padding: 7rem 0;
+    padding: 0;
     background-color: #6e3b30;
 }
 
@@ -60,17 +60,19 @@ h2 {
     @media (max-width: 991.98px) {
       .site-blocks-cover .sub-text {
         color: #000; } }
-  .site-blocks-cover .img-wrap {
+.site-blocks-cover .img-wrap {
     position: absolute;
     z-index: -1;
-    width: calc(100% - 50%);
+    width: calc(100% - 20%);
     top: 0;
     height: 100%;
     z-index: 2;
     right: 50%;
     min-height: 600px;
     overflow: hidden;
-    border-bottom-right-radius: 200px; }
+    border-top-right-radius: 75%;
+    border-bottom-right-radius: 25%;
+}
     @media (max-width: 991.98px) {
       .site-blocks-cover .img-wrap {
         width: 100%;
@@ -125,7 +127,7 @@ h2 {
     height: 50px;
     text-align: center;
     line-height: 50px;
-    border-radius: 50%;
+    border-radius: 150%;
     background: #007bff;
     color: #fff;
     margin-bottom: 10px;
