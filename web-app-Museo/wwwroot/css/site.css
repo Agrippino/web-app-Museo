@@ -41,10 +41,7 @@ body {
     width: 100%;
 }
 
-.sfondoVerdeBottone {
-    background-color: rgba(154,209,139,255);
-    background-size: cover;
-}
+
 marquee {
     height: 300px;
     width: 100%;
@@ -530,4 +527,12 @@ input {
     to {
         transform: translateY(-50px) scaleX(1);
     }
+}
+.sfondoBluBottone {
+    background-color: rgb(48, 127, 156);
+    background-size: cover;
+}
+.sfondoVerdeBottone {
+    background-color: rgba(154,209,139,255);
+    background-size: cover;
 }
