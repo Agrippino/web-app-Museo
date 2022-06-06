@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Rifornimento";
 }
-
 @{
     Layout = "_LayoutAdminRifornimento";
 }
@@ -11,20 +10,21 @@
 
 <div class="container-fluid sfondoVerde">
     <h1 class="col-12 text-center titolo p-3">Rifornimento</h1>
+	<hr />
 
                <form method="post" action="@Url.Action("Rifornimento", "Admin")" class="row">
 	            @Html.AntiForgeryToken()	        
 		        <div class="mb-3 col-md-6 col-12">
-		            <label for="input-fornitore">Nome Fornitore:</label>
-		            <input name="nomeFornitore" id="input-fornitore"> 
+		            <label for="input-fornitore"  class="control-label">Nome Fornitore:</label>
+		            <input type="text" name="nomeFornitore"  id="FormModifica"> 
 	            </div>
                 <div class="mb-3 col-md-6 col-12">
-		            <label for="input-quantita">Quantita da rifornire:</label>
-		            <input type="number" class="d-block w-100" name="quantitaDaAggiungere" id="input-quantita">  
+		            <label for="input-quantita" class="control-label">Quantita da rifornire:</label>
+		            <input type="number" name="quantitaDaAggiungere" id="FormModifica">  
 	            </div>                  
                 <div class="modal-footer col-12 text-center">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-                    <button type="submit" class="btn btn-primary btn-info">Conferma rifornimento</button>
+                    <button type="submit" class="btn sfondoVerdeBottone shadow-lg">Conferma rifornimento</button>
                 </div>
 	           </form> 
 </div>

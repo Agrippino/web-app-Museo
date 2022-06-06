@@ -41,7 +41,10 @@ body {
     width: 100%;
 }
 
-
+.sfondoVerdeBottone {
+    background-color: rgba(154,209,139,255);
+    background-size: cover;
+}
 marquee {
     height: 300px;
     width: 100%;
