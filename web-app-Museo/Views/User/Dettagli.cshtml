@@ -45,6 +45,7 @@
                                             </div>
                                             <div class="col-md-6 col-12">
                                         <button type="submit" class="btn sfondoRosaBottone btn-block mb-5 shadow-lg">Invia acquisto</button>
+                                        <button type="button" onclick="torna()" class="btn sfondoRosaBottone btn-block mb-5 shadow-lg">Torna allo SHOP</button>
                                </div>
                                         </div>
                             </form>
@@ -85,7 +86,11 @@
                     console.log(acquistoUtente)
                 });
             }
-           
+            function torna()
+            {
+                window.location.href = "https://localhost:7281/user";
+            }
+
 
 
     </script>

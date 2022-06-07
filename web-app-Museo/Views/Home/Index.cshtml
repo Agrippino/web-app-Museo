@@ -1,6 +1,7 @@
 ﻿@{
     Layout = null;
 }
+@model List<ClassificaProdotto>
 <!doctype html>
 <html lang="en">
   <head>
@@ -139,15 +140,12 @@
     <div class="site-blocks-cover">
       <div class="img-wrap">
         <div class="owl-carousel slide-one-item hero-slider">
-          <div class="slide">
-            <img src="images/hero_1.jpg" alt="Free Website Template by Free-Template.co">  
-          </div>
-          <div class="slide">
-            <img src="images/hero_2.jpg" alt="Free Website Template by Free-Template.co">  
-          </div>
-          <div class="slide">
-            <img src="images/hero_3.jpg" alt="Free Website Template by Free-Template.co">  
-          </div>
+                    @foreach(ClassificaProdotto bestSeller in Model)
+                    {
+                        <div class="slide">
+                            <img src="@bestSeller.Immagine" alt="Free Website Template by Free-Template.co">  
+                        </div>
+                    }
         </div>
       </div>
       <div class="container">
@@ -159,13 +157,51 @@
               </div>
               <div class="text sub-text">
                 <p>Esplora la selezione dei prodotti più venduti.</p>
-                <p><a asp-controller="User" asp-action="AcquistiMensili" class="btn btn-outline-primary btn-md btn-pill">SCOPRILI TUTTI</a></p>
+                <p><a onclick="mostraTabella()" class="btn btn-outline-primary btn-md btn-pill">SCOPRILI TUTTI</a></p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+              </div>
     </div> <!-- END .site-blocks-cover -->
+             <!-- Inizio classifica prodotti -->
+      <div class="container">
+          <div id="Mostra" class="d-none row">
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th class=col-4>
+                            Nome prodotto
+                        </th>
+                        <th>
+                            Immagine Prodotto
+                        </th>
+                        <th>
+                            Prodotti venduti
+                        </th>
+                    </tr>
+                </thead>
+                        @foreach(ClassificaProdotto listaProdotti in Model)
+                        {
+                            
+                        <tbody>
+                        <tr>
+                            <td data-label="Nome prodotto">
+                                @listaProdotti.Nome
+                            </td>
+                            <td data-label="Immagine Prodotto">
+                                <img src="@listaProdotti.Immagine" width="150" height="200" alt=""/>
+                            </td>
+                            <td data-label="Prodotti venduti">
+                                @listaProdotti.ProdottiVenduti
+                            </td>
+                        </tr>
+                    </tbody>
+                        }
+            </table>
+          </div>
+      </div><!-- END classifica prodotti -->
+
   </div>
     
       <footer class="w-100 py-4 flex-shrink-0">
@@ -233,4 +269,8 @@
         vgeg.style.top = value * 0.2 + 'px';
         text.style.top = value * 0.6 + 'px';
     })
+
+    function mostraTabella(){
+        document.getElementById("Mostra").classList.remove('d-none');
+    }
 </script>
