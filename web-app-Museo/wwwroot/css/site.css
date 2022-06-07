@@ -59,6 +59,11 @@ body {
     background-size: cover;
 }
 
+.sfondoGialloBottone {
+    background-color: rgba(252,227,115,255);
+    background-size: cover;
+}
+
 marquee {
     height: 300px;
     width: 100%;
@@ -328,9 +333,9 @@ input {
         }
 
             table td::before {
-                /*
-    * aria-label has no advantage, it won't be read inside a table
-    content: attr(aria-label);
+   /*
+    *       aria-label has no advantage, it won't be read inside a table
+    *       content: attr(aria-label);
     */
                 content: attr(data-label);
                 float: left;
@@ -342,4 +347,16 @@ input {
                 border-bottom: 0;
             }
 }
+.resize {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+@media screen and (max-width: 600px) {
+    .resize {
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+    }
+
 }
