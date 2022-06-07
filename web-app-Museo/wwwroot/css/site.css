@@ -147,7 +147,7 @@ input {
 
 #landingtext {
     position: relative;
-    font-size: 10em;
+    font-size: 9vw;
     z-index: 2;
 }
 
@@ -294,43 +294,52 @@ input {
     margin: 0px;
 }
 
+@media screen and (max-width: 600px) {
+    table {
+        border: 0;
+    }
 
+        table caption {
+            font-size: 1.3em;
+        }
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+        table thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
 
-// Colors
-$navbar-white: #fafafa;
-$navbar-black: #131313;
-$navbar-active-color: #fafafa;
-$navbar-bg-active-color: #ff9900;
-$bg-light-blue: #00c6ff;
-$bg-dark-blue: #0072ff;
+        table tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+        }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-}
+        table td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: right;
+        }
 
-body {
-    font-family: "Open Sans", sans-serif;
-    background: #e0e0e0;
-}
+            table td::before {
+                /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
 
-.jumbo {
-    padding-top: 100px;
-    min-height: 200vh;
-}
-
-// On Shrink
-.shrink {
-    .navbar
-
-{
-    color: $navbar-white;
-    background: $bg-light-blue;
-    background: -webkit-linear-gradient(55deg,$bg-light-blue 10%,$bg-dark-blue 90%);
-    background: linear-gradient(35deg,$bg-light-blue 10%,$bg-dark-blue 90%);
+            table td:last-child {
+                border-bottom: 0;
+            }
 }
 }
