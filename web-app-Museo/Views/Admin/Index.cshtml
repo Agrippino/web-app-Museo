@@ -2,10 +2,6 @@
 @model List<QuantitaDisponibile>
 
 @{
-    ViewData["Title"] = "Index";
-}
-
-@{
     Layout = "_LayoutAdmin";
 }
 
@@ -14,7 +10,7 @@
     <div class="row justify-content-center">
        <div class="col-4 text-center">
           <p>
-            <a asp-action="Crea">Crea Prodotto</a>
+           <a asp-controller="Admin"  asp-action="Crea"> <button type="button"  class="btn sfondoRosaBottone btn-block mb-5 shadow-lg">Crea Prodotto</button></a>
           </p>
         </div>  
     </div>
@@ -29,7 +25,7 @@
                 <th >Nome</th>
                 <th >Prezzo Cliente</th>
                 <th >Quantità</th>
-                <th >CRUD</th>
+                <th class="text-center">CRUD</th>
                 </tr>
                 </thead>
 
@@ -68,7 +64,7 @@
                             </td>  
                           }
                         
-                          <td data-label="CRUD">
+                          <td data-label="CRUD" class="text-center">
                           <ul class="wrapper">
                                     <a asp-action="Rifornimento" asp-route-id="@item.Id">
                                       <li class="icon facebook ">
