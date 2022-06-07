@@ -37,7 +37,7 @@
                             <p class="text ">${result.data.descrizione}</p>
                             
                             
-                            <form onsubmit="Acquisto(event)"  method="post">
+                            <form name="myForm" onsubmit="Acquisto(event)"  method="post">
                             <div class="row">
                                             <label><b>Quantità da acquistare</b></label>
                                             <div class="col-md-6 col-12">
@@ -79,6 +79,7 @@
                 ).then((result) => {
                           
                     alert("Complimenti hai acquistato il prodotto");
+                    window.location.href = "https://localhost:7281/user";
                 }).catch((error) => {
                     console.log("C'è stato un errore: " + error);
                     console.log(acquistoUtente)

@@ -347,8 +347,16 @@ input {
                 border-bottom: 0;
             }
 }
+.resize {
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
 @media screen and (max-width: 600px) {
-    .nomeNavbar {
-        font-size: 15px;
+    .resize {
+        width: 100%;
+        height: 100%;
+        padding: 0px;
     }
+
 }

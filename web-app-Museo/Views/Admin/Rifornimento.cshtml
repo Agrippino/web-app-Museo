@@ -9,7 +9,8 @@
 
 
 <div class="container-fluid sfondoVerde">
-    <h1 class="col-12 text-center titolo p-3">Rifornimento</h1>
+    <h1 class="col-12 text-center titolo pt-3 pb-0">Rifornimento</h1>
+	<h2 class="col-12 text-center pt-0 pb-3">@Model.Prodotti.Nome</h2>
 	<hr />
 
                <form method="post" action="@Url.Action("Rifornimento", "Admin")" class="row">
@@ -20,7 +21,7 @@
 	            </div>
                 <div class="mb-3 col-md-6 col-12">
 		            <label for="input-quantita" class="control-label">Quantita da rifornire:</label>
-		            <input type="number" name="quantitaDaAggiungere" id="FormModifica">  
+		            <input type="number" name="quantitaDaAggiungere" id="FormModifica">
 	            </div>                  
                 <div class=" col-12 text-center">
                     <a class="btn btn-secondary"asp-controller="Admin" asp-action="Index">Annulla</a>
@@ -30,9 +31,48 @@
 </div>
 
 
-@foreach(var rifornimento in Model.Rifornimenti){
-    <h1>@rifornimento.DataRifornimento</h1>
+<div>
+
+    @if (Model.Rifornimenti.Count == 0){
+        <h1>nullo</h1>
+    } else
+    {
+        <h2>Rifornimenti effettuati:</h2>
+		<table class="table"id="unseen">
+            <thead>
+                <tr>
+                <th class="numeric">Fornitore</th>
+                <th class="numeric">Quantità</th>
+                <th class="numeric">Data</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            @foreach (var rifornimento in Model.Rifornimenti) {      
+                    <tr>
+                    <td data-label="Fornitore">
+                        @rifornimento.NomeFornitore
+                    </td>
+                    <td data-label="Quantità" class="numeric">
+                        @rifornimento.QuantitaDaAggiungere
+                    </td>                     
+                    <td data-label="Data">
+                        @rifornimento.DataRifornimento
+                    </td>                
+                    </tr>
+            } 
+            </tbody>
+        </table>
+    }
+	
 }
+</div>
+
+
+
+
+
+
 
 <!--
 <div class="container">
