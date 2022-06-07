@@ -242,6 +242,7 @@ namespace web_app_Museo.Controllers
             {
                 nuovoRifornimento.QuantitaDaAggiungere = quantitaDaAggiungere;
                 nuovoRifornimento.NomeFornitore = nomeFornitore;
+                nuovoRifornimento.DataRifornimento = DateTime.Now;
                 nuovoRifornimento.ProdottoId = id;
 
                 db.Rifornimenti.Add(nuovoRifornimento);

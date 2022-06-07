@@ -15,7 +15,8 @@ namespace web_app_Museo.Models
         public Prodotto Prodotto { get; set; }
 
         public DateTime?  DataRifornimento { get; set; }
-        public string? NomeFornitore { get; set; }
+        [Required(ErrorMessage = "Il nome fornitore è obbligatorio")]
+        public string NomeFornitore { get; set; }
 
         public Rifornimento()
         {
