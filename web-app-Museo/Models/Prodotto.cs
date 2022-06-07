@@ -15,15 +15,14 @@ namespace web_app_Museo.Models
         [StringLength(30, ErrorMessage = "Hai superato il limite di caratteri massimo di 30")]
         public string Nome { get; set; }
         [Required(ErrorMessage = "Per favore inserisci una descrizone del prodotto, questo campo è obbligatorio")]
-        [StringLength(400, ErrorMessage = "Hai superato il limite di caratteri massimo di 250")]
+        [StringLength(10000, ErrorMessage = "Hai superato il limite di caratteri massimo di 10000")]
         [Column(TypeName="Text")]
         public string Descrizione { get; set; }
         [Required(ErrorMessage = "Per favore inserisci il prezzo del prodotto, questo campo è obbligatorio")]
         [Range(0.01,1000, ErrorMessage = "Mi dispiaice hai inserito un prezzo non valido, i minimo è 0.01€ mentre il massimo è 10000€ ")]
-
         public double Prezzo { get; set; }
         [Required(ErrorMessage = "Per favore inserisci la quantità disponibile del prodotto, questo campo è obbligatorio")]
-        [Range(0, 1000, ErrorMessage = "Mi dispiace hai inserito una quantità non valida, il minimo è 1 mentre il massimo è 10000")]
+        [Range (0, 1000, ErrorMessage = "Mi dispiace hai inserito una quantità non valida, il minimo è 1 mentre il massimo è 10000")]
         public int QuantitaDisponibile { get; set; }
 
 
