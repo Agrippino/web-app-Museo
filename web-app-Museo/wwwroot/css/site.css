@@ -59,6 +59,11 @@ body {
     background-size: cover;
 }
 
+.sfondoGialloBottone {
+    background-color: rgba(252,227,115,255);
+    background-size: cover;
+}
+
 marquee {
     height: 300px;
     width: 100%;
@@ -342,4 +347,8 @@ input {
                 border-bottom: 0;
             }
 }
+@media screen and (max-width: 600px) {
+    .nomeNavbar {
+        font-size: 15px;
+    }
 }
