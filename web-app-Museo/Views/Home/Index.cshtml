@@ -20,6 +20,8 @@
 
     <link rel="stylesheet" href="~/css/animate.css">
 
+    <link rel="stylesheet" href="~/css/card.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
     
@@ -167,38 +169,24 @@
              <!-- Inizio classifica prodotti -->
       <div class="container">
           <div id="Mostra" class="d-none row">
-              <table class="table">
-                <thead>
-                    <tr>
-                        <th class=col-4>
-                            Nome prodotto
-                        </th>
-                        <th>
-                            Immagine Prodotto
-                        </th>
-                        <th>
-                            Prodotti venduti
-                        </th>
-                    </tr>
-                </thead>
+
                         @foreach(ClassificaProdotto listaProdotti in Model)
                         {
                             
-                        <tbody>
-                        <tr>
-                            <td data-label="Nome prodotto">
-                                @listaProdotti.Nome
-                            </td>
-                            <td data-label="Immagine Prodotto">
-                                <img src="@listaProdotti.Immagine" width="150" height="200" alt=""/>
-                            </td>
-                            <td data-label="Prodotti venduti">
-                                @listaProdotti.ProdottiVenduti
-                            </td>
-                        </tr>
-                    </tbody>
+                          <div class="wrapper">
+                            <div class="product-img">
+                              <img src="@listaProdotti.Immagine" height="420" width="327">
+                            </div>
+                            <div class="product-info">
+                              <div class="product-text">
+                                <h1>@listaProdotti.Nome</h1>
+                                <p>É STATO VENDUTO @listaProdotti.ProdottiVenduti VOLTE</p>
+                              </div>
+                                <a class="btn sfondoBlu btn-md btn-pill" href="https://localhost:7281/user/dettagli/@listaProdotti.Id">Acquista</a>
+                              </div>
+                          </div>
                         }
-            </table>
+
           </div>
       </div><!-- END classifica prodotti -->
 
