@@ -7,7 +7,7 @@
 
 <div class="container-fluid sfondoVerde">
     <h1 class="col-12 text-center titolo pt-3 pb-0">Rifornimento</h1>
-	<h2 class="col-12 text-center pt-0 pb-3">@Model.Prodotti.Nome</h2>
+	<h2 class="col-12 text-center pt-0 pb-3">@Model.Prodotti.Nome : @Model.QuantitaDisponibili.QuantitaTotale unità disponibili</h2>
 	<hr />
 
                <form method="post" action="@Url.Action("Rifornimento", "Admin")" class="row">
