@@ -89,7 +89,7 @@
 
 
                     <!-- Modal -->
-                    <form action="@Url.Action("Elimina", "Admin", new {id=item.Id})" method="post" >
+                    <form action="@Url.Action("Elimina","Admin", new{id=item.Id})" method="post" >
                         @Html.AntiForgeryToken()
                     <div class="modal fade" id="@item.Nome" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog">
