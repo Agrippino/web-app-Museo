@@ -78,7 +78,7 @@
                                         <span ><img src="/img/pencil-square.svg" width="20" height="20"/></span>
                                       </li>
                                       </a>
-                                      <li class="icon facebook" data-bs-toggle="modal" data-bs-target="#ProdottoModal">
+                                      <li class="icon facebook" data-bs-toggle="modal" data-bs-target="#BottoneElimina-@item.Id">
                                         <span class="tooltip">Elimina</span>
                                         <span > <img src="/img/trash3-fill.svg" width="20" height="20"/></span>
                                       </li>
@@ -89,9 +89,9 @@
 
 
                     <!-- Modal -->
-                    <form action="@Url.Action("Elimina","Admin", new{id=item.Id})" method="post" >
+                    <form action="@Url.Action("Elimina", "Admin", new {id= item.Id})" method="post" >
                         @Html.AntiForgeryToken()
-                    <div class="modal fade" id="ProdottoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="@item.Nome" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                               <div class="modal-header">
